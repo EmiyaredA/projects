@@ -45,8 +45,12 @@ def main(searxng_json_str: str, search_type: str):
         parsed_articles = parse_articles(searxng_json_str)
         documents = [
             Document(
-                page_content=json.dumps(article, ensure_ascii=False),  # 这应该是 res.content
-                metadata=article
+                page_content=json.dumps(article["Summary"], ensure_ascii=False),  # 这应该是 res.content
+                metadata={
+                    "title": article["Title"],
+                    "published": article["Published"],
+                    "authors": article["Authors"],
+                }
             ).to_dict()
             for article in parsed_articles
         ]
@@ -55,11 +59,7 @@ def main(searxng_json_str: str, search_type: str):
         searxng_json = json.loads(searxng_json_str)
         documents = [
             Document(
-                page_content=json.dumps({
-                    "title": result.get("title", ""),
-                    "url": result.get("url", ""),
-                    "content": result["content"]
-                }, ensure_ascii=False),  # 这应该是 res.content
+                page_content=result.get("content", result.get("title", "")),  # 这应该是 res.content
                 metadata={
                     "title": result.get("title", ""),
                     "url": result.get("url", ""),
@@ -70,5 +70,6 @@ def main(searxng_json_str: str, search_type: str):
         ]
 
     return {
-        "docs": json.dumps(documents, ensure_ascii=False)
+        "docs": json.dumps(documents, ensure_ascii=False),
+        "docs_list": [doc_json["page_content"] for doc_json in documents]
     }
