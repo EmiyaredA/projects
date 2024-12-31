@@ -11,13 +11,13 @@ def get_current_utc_datetime():
     # 将其格式化为ISO 8601格式
     return current_datetime.isoformat() + 'Z'  # 'Z'表示UTC时间
 
-def main(docs: str, search_type: str) -> dict:
+def main(docs: str, search_type: str, ai_name:str) -> dict:
 
     processed_docs = process_docs(json.loads(docs)) if docs else ""
 
     summary_templates = {
         "webSearch": Template("""
-You are Perplexica, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
+You are {{name}}, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
 
 Your task is to provide answers that are:
 - **Informative and relevant**: Thoroughly address the user's query using the given context.
@@ -59,7 +59,7 @@ Your task is to provide answers that are:
 
 Current date & time in ISO format (UTC timezone) is: {{date}}.
 """.strip()),
-        "academicSearch": Template("""You are SenseNoteAI, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
+        "academicSearch": Template("""You are {{name}}, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
 
 Your task is to provide answers that are:
 - **Informative and relevant**: Thoroughly address the user's query using the given context.
@@ -102,7 +102,7 @@ Your task is to provide answers that are:
 
 Current date & time in ISO format (UTC timezone) is: {{date}}.""".strip()),
         "socialSearch": Template("""
-You are Perplexica, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
+You are {{name}}, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
 
 Your task is to provide answers that are:
 - **Informative and relevant**: Thoroughly address the user's query using the given context.
@@ -144,7 +144,7 @@ Your task is to provide answers that are:
 </context>
 
 Current date & time in ISO format (UTC timezone) is: {{date}}.""".strip()),
-        "scienceSearch": Template("""You are Perplexica, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
+        "scienceSearch": Template("""You are {{name}}, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
 
 Your task is to provide answers that are:
 - **Informative and relevant**: Thoroughly address the user's query using the given context.
@@ -186,7 +186,7 @@ Your task is to provide answers that are:
 </context>
 
 Current date & time in ISO format (UTC timezone) is: {{date}}.""".strip()),
-        "videoSearch": Template("""You are Perplexica, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
+        "videoSearch": Template("""You are {{name}}, an AI model skilled in web search and crafting detailed, engaging, and well-structured answers. You excel at summarizing web pages and extracting relevant information to create professional, blog-style responses.
 
 Your task is to provide answers that are:
 - **Informative and relevant**: Thoroughly address the user's query using the given context.
@@ -232,7 +232,9 @@ Current date & time in ISO format (UTC timezone) is: {{date}}.""".strip())
     }
 
     return {
+        "docs_context": processed_docs,
         "summary_prompt": summary_templates[search_type].render(
+            name=ai_name,
             context=processed_docs,
             date=get_current_utc_datetime())
     }
