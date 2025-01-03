@@ -1,6 +1,15 @@
 import json
 from jinja2 import Template
 
+def formatChatHistoryAsString(all_history):
+    type_map = {
+        "user": "human",
+        "assistant": "ai"
+    }
+    history_formatted = "\n".join([
+        f"{dialog['role']}: {dialog['content']}" for dialog in all_history
+    ])
+
 
 def main(user_input: str, all_history: str, search_type: str):
     search_handlers = {
@@ -49,50 +58,50 @@ def main(user_input: str, all_history: str, search_type: str):
     }
 
     search_retriever_prompt = {
-        'webSearch': Template("""You will be given a conversation below and a follow-up question. Rephrase the question so it can be used by the LLM to search the web for the required information.
+        'webSearch': Template("""
+You are an AI question rephraser. You will be given a conversation and a follow-up question,  you will have to rephrase the follow up question so it is a standalone question and can be used by another LLM to search the web for information to answer it.
 
 Example:
-1. Follow up question: What is the capital of France 
-Rephrased: Capital of france 
+1. Follow up question: What is the capital of France
+Rephrased question: Capital of france
 
-2. Follow up question: Any cool new AI breakthroughs?
-Rephrased: New AI breakthroughs
+2. Follow up question: What is Docker?
+Rephrased question: What is Docker
 
-3. Follow up question: What is Docker? 
-Rephrased: What is Docker 
+3. Follow up question: How does stable diffusion work?
+Rephrased: Stable diffusion working
 
-Anything below is the part of the actual conversation and you need to use conversation and the follow-up question to rephrase the follow-up question as a standalone question based on the guidelines shared above.
+Conversation:
+{{chat_history}}
 
-Conversations:
-{{all_history}}
-
-Follow up question: {{search_query}}
+Follow up question: {{query}}
 Rephrased question:""".strip()),
-        'academicSearch': Template("""You will be given a conversation below and a follow-up question. Rephrase the question so it can be used by the LLM to search the web for the required information.
+        'academicSearch': Template("""You will be given a conversation below and a follow up question. You need to rephrase the follow-up question if needed so it is a standalone question that can be used by the LLM to search the web for information.
 
-Example: 
-1. Follow up question: How does stable diffusion work? 
-Rephrased: Stable diffusion working 
+Example:
+1. Follow up question: How does stable diffusion work?
+Rephrased: Stable diffusion working
 
-2. Follow up question: Any cool new AI breakthroughs?
-Rephrased: New AI breakthroughs
+2. Follow up question: What is linear algebra?
+Rephrased: Linear algebra
 
-3. Follow up question: What is the third law of thermodynamics? 
-Rephrased: Third law of thermodynamics 
+3. Follow up question: What is the third law of thermodynamics?
+Rephrased: Third law of thermodynamics
 
-Conversations:
-{{all_history}}
+Conversation:
+{{chat_history}}
 
-Follow up question: {{search_query}}
+Follow up question: {{query}}
 Rephrased question:""".strip()),
-        'scienceSearch': Template("""You will be given a conversation below and a follow-up question. Rephrase the question so it can be used by the LLM to search the web for the required information.
+        'scienceSearch': Template("""
+You will be given a conversation below and a follow up question. You need to rephrase the follow-up question if needed so it is a standalone question that can be used by the LLM to search the web for information.
 
 Example: 
 1. Follow up question: What is the atomic radius of S? 
 Rephrased: Atomic radius of S 
 
-2. Follow up question: Any cool new AI breakthroughs?
-Rephrased: New AI breakthroughs
+2. Follow up question: What is linear algebra?
+Rephrased: Linear algebra
 
 3. Follow up question: What is the third law of thermodynamics? 
 Rephrased: Third law of thermodynamics
@@ -102,7 +111,8 @@ Conversations:
 
 Follow up question: {{search_query}}
 Rephrased question:""".strip()),
-        'videoSearch': Template("""You will be given a conversation below and a follow-up question. Rephrase the question so it can be used by the LLM to search the web for the required information.
+        'videoSearch': Template("""
+You will be given a conversation below and a follow up question. You need to rephrase the follow-up question if needed so it is a standalone question that can be used by the LLM to search the web for information.
 
 Example: 
 1. Follow up question: How does an A.C work? 
@@ -119,14 +129,15 @@ Conversations:
 
 Follow up question:{{search_query}} 
 Rephrased question:""".strip()),
-        'socialSearch': Template("""You will be given a conversation below and a follow-up question. Rephrase the question so it can be used by the LLM to search the web for the required information.
+        'socialSearch': Template("""
+You will be given a conversation below and a follow up question. You need to rephrase the follow-up question if needed so it is a standalone question that can be used by the LLM to search the web for information.
 
 Example: 
 1. Follow up question: Which company is most likely to create an AGI 
 Rephrased: Which company is most likely to create an AGI 
 
-2. Follow up question: Any cool new AI breakthroughs?
-Rephrased: New AI breakthroughs
+2. Follow up question: Is Earth flat?
+Rephrased: Is Earth flat?
 
 3. Follow up question: Is there life on Mars? 
 Rephrased: Is there life on Mars? 
@@ -140,12 +151,16 @@ Rephrased question:""".strip())
 
     search_query = user_input
 
-    # all_history_list = json.loads(all_history)
-    # history_with_searchQuery = all_history_list.append({"role": "user", "content": search_query})
+    try:
+        all_history_list = json.loads(all_history)
+    except:
+        all_history_list = []
+    all_history_list.append({"role": "user", "content": search_query})
+    history_with_searchQuery = formatChatHistoryAsString(all_history_list)
 
     return {
         "search_query": search_query,
         "search_config": json.dumps(search_handlers[search_type], ensure_ascii=False),
-        "search_retriever_prompt": search_retriever_prompt[search_type].render(all_history=all_history,search_query=search_query),
-        # "history_with_searchQuery": json.dumps(history_with_searchQuery, ensure_ascii=False)
+        "search_retriever_prompt": search_retriever_prompt[search_type].render(all_history=all_history,query=search_query),
+        "history_with_searchQuery": json.dumps(history_with_searchQuery, ensure_ascii=False)
     }
