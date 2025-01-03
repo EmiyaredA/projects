@@ -1,0 +1,2221 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 笔记AI助手-智能搜索
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.3
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: bcc50c1a-89e8-40b9-b74e-1c70f122eeda
+    name: ai_name
+    value: SenseNoteAI
+    value_type: string
+  - description: ''
+    id: d1f4ac1b-5caa-4655-a75f-37cea4d51732
+    name: custom_openai_base_url
+    value: https://platform.llmprovider.ai/v1
+    value_type: string
+  - description: ''
+    id: 247745e5-0de7-4673-a43d-2a0c77c61703
+    name: custom_openai_api_key
+    value: sk-Y7WuSEuYIchtepzPxcvIHxby7jkRHMxhDfWwSu4PE68eD70eC2C249Ae82221969B26a47Bb
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1735621482897-true-1735621459075-target
+      selected: false
+      source: '1735621482897'
+      sourceHandle: 'true'
+      target: '1735621459075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1735621459075-source-1735621498733-target
+      selected: false
+      source: '1735621459075'
+      sourceHandle: source
+      target: '1735621498733'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: if-else
+      id: 1735621498733-source-1735621539495-target
+      selected: false
+      source: '1735621498733'
+      sourceHandle: source
+      target: '1735621539495'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: variable-aggregator
+      id: 1735621482897-false-1735621595418-target
+      source: '1735621482897'
+      sourceHandle: 'false'
+      target: '1735621595418'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: variable-aggregator
+      id: 1735621539495-false-1735621595418-target
+      source: '1735621539495'
+      sourceHandle: 'false'
+      target: '1735621595418'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: code
+      id: 1735621595418-source-1735621642839-target
+      source: '1735621595418'
+      sourceHandle: source
+      target: '1735621642839'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1735621642839-source-1735621923830-target
+      source: '1735621642839'
+      sourceHandle: source
+      target: '1735621923830'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1735621923830-source-1735621987777-target
+      source: '1735621923830'
+      sourceHandle: source
+      target: '1735621987777'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1735621987777-true-1735622103037-target
+      source: '1735621987777'
+      sourceHandle: 'true'
+      target: '1735622103037'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: variable-aggregator
+      id: 1735622103037-source-1735622130596-target
+      source: '1735622103037'
+      sourceHandle: source
+      target: '1735622130596'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1735621987777-fbd0dd53-62d4-46f1-aff8-ce281d7ae049-1735622151640-target
+      source: '1735621987777'
+      sourceHandle: fbd0dd53-62d4-46f1-aff8-ce281d7ae049
+      target: '1735622151640'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1735622151640-source-1735622174248-target
+      source: '1735622151640'
+      sourceHandle: source
+      target: '1735622174248'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1735622174248-source-1735622130596-target
+      source: '1735622174248'
+      sourceHandle: source
+      target: '1735622130596'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1735621987777-c7749aab-14cd-46ed-bced-8722a7faa2e5-1735622296281-target
+      source: '1735621987777'
+      sourceHandle: c7749aab-14cd-46ed-bced-8722a7faa2e5
+      target: '1735622296281'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1735622296281-source-1735622337038-target
+      source: '1735622296281'
+      sourceHandle: source
+      target: '1735622337038'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1735622337038-source-1735622130596-target
+      source: '1735622337038'
+      sourceHandle: source
+      target: '1735622130596'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1735621987777-51ade959-9d14-489f-a7fc-53d5c15bbaa8-1735623655615-target
+      source: '1735621987777'
+      sourceHandle: 51ade959-9d14-489f-a7fc-53d5c15bbaa8
+      target: '1735623655615'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1735623655615-source-1735623689534-target
+      source: '1735623655615'
+      sourceHandle: source
+      target: '1735623689534'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1735621987777-55c59898-19e0-403b-aecc-0e94b82b2d99-1735623759036-target
+      source: '1735621987777'
+      sourceHandle: 55c59898-19e0-403b-aecc-0e94b82b2d99
+      target: '1735623759036'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1735623759036-source-1735623781704-target
+      source: '1735623759036'
+      sourceHandle: source
+      target: '1735623781704'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1735623689534-source-1735622130596-target
+      source: '1735623689534'
+      sourceHandle: source
+      target: '1735622130596'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1735623781704-source-1735622130596-target
+      source: '1735623781704'
+      sourceHandle: source
+      target: '1735622130596'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: code
+      id: 1735622130596-source-1735625106438-target
+      source: '1735622130596'
+      sourceHandle: source
+      target: '1735625106438'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: if-else
+      id: 1735625106438-source-1735625944623-target
+      source: '1735625106438'
+      sourceHandle: source
+      target: '1735625944623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1735625944623-64a5d5f6-8be4-4c71-b53f-07c769568509-1735626412322-target
+      source: '1735625944623'
+      sourceHandle: 64a5d5f6-8be4-4c71-b53f-07c769568509
+      target: '1735626412322'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1735626412322-source-1735626108617-target
+      source: '1735626412322'
+      sourceHandle: source
+      target: '1735626108617'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1735626108617'
+        sourceType: iteration-start
+        targetType: code
+      id: 1735626108617start-source-1735627601855-target
+      source: 1735626108617start
+      sourceHandle: source
+      target: '1735627601855'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 1735626108617-source-1735627707698-target
+      source: '1735626108617'
+      sourceHandle: source
+      target: '1735627707698'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1735625944623-true-1735631311203-target
+      source: '1735625944623'
+      sourceHandle: 'true'
+      target: '1735631311203'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1735631311203-source-1735631367970-target
+      source: '1735631311203'
+      sourceHandle: source
+      target: '1735631367970'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1735627707698-source-1735631367970-target
+      source: '1735627707698'
+      sourceHandle: source
+      target: '1735631367970'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1735631824616-source-1735633715949-target
+      source: '1735631824616'
+      sourceHandle: source
+      target: '1735633715949'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1735621539495-true-1735633851188-target
+      source: '1735621539495'
+      sourceHandle: 'true'
+      target: '1735633851188'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1735633851188-source-1735631367970-target
+      source: '1735633851188'
+      sourceHandle: source
+      target: '1735631367970'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1735625944623-96ccbfb6-5c63-498d-802e-c4703de19f66-1735631311203-target
+      source: '1735625944623'
+      sourceHandle: 96ccbfb6-5c63-498d-802e-c4703de19f66
+      target: '1735631311203'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1735620050777-source-1735888359454-target
+      source: '1735620050777'
+      sourceHandle: source
+      target: '1735888359454'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: if-else
+      id: 1735888359454-source-1735621482897-target
+      source: '1735888359454'
+      sourceHandle: source
+      target: '1735621482897'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: code
+      id: 1735631367970-source-1735631824616-target
+      source: '1735631367970'
+      sourceHandle: source
+      target: '1735631824616'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1735633715949-source-1735633777802-target
+      source: '1735633715949'
+      sourceHandle: source
+      target: '1735633777802'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1735621987777-false-1735623759036-target
+      source: '1735621987777'
+      sourceHandle: 'false'
+      target: '1735623759036'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1735625944623-false-1735631311203-target
+      source: '1735625944623'
+      sourceHandle: 'false'
+      target: '1735631311203'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: search_type
+          max_length: 48
+          options:
+          - webSearch
+          - academicSearch
+          - scienceSearch
+          - videoSearch
+          - socialSearch
+          required: false
+          type: select
+          variable: search_type
+        - label: query
+          max_length: 8192
+          options: []
+          required: true
+          type: paragraph
+          variable: query
+        - label: all_history
+          max_length: 8192
+          options: []
+          required: true
+          type: paragraph
+          variable: all_history
+        - label: mode
+          max_length: 48
+          options:
+          - speed
+          - balanced
+          required: false
+          type: select
+          variable: mode
+      height: 168
+      id: '1735620050777'
+      position:
+        x: 66.20361251625002
+        y: 93.96107832803719
+      positionAbsolute:
+        x: 66.20361251625002
+        y: 93.96107832803719
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 9f8bf78c-f2ab-49e5-b594-7cf722bc1e72
+          role: system
+          text: "You are a task classifier. Your task is to analyze a user's query\
+            \ and determine whether a search operation is needed and, if so, which\
+            \ type of search should be performed. You have the following possible\
+            \ search types: \n\n1. **academicSearch**: If the query pertains to academic\
+            \ papers, research, scholarly knowledge, or journal articles. \n2. **socialSearch**:\
+            \ If the query pertains to social media, online communities, forums, or\
+            \ social network platforms. \n3. **scienceSearch**: If the query relates\
+            \ to scientific experiments, natural sciences, technological research,\
+            \ or any science-related information. \n4. **videoSearch**: If the query\
+            \ involves searching for video content or platforms like YouTube, TikTok,\
+            \ etc. \n5. **webSearch**: If the query involves general internet search,\
+            \ looking for web pages, news articles, or general online content. \n\n\
+            ### Rules: \n- If the query does not require a search operation, return\
+            \ `not_needed`. \n- If the query requires a search, return the appropriate\
+            \ search type.\n \n### Example: \nUser: latest research papers on quantum\
+            \ computing\nAssistant: academicSearch. \n\nUser:  hot Twitter topics\
+            \ today\nAssistant: socialSearch. \n\nUser:  how to conduct a science\
+            \ experiment\nAssistant: scienceSearch.\n\nUser:  watch funny cat videos\n\
+            Assistant: videoSearch. \n\nUser:  find the latest weather news\nAssistant:\
+            \ webSearch. \n\nRefering to the above examples, return only one of the\
+            \ five categories based on the user requests. Do NOT include any other\
+            \ information.\n"
+        - role: user
+          text: '{{#1735620050777.query#}}'
+        selected: false
+        title: 搜索类型分类器
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1735621459075'
+      position:
+        x: 975.5307302846356
+        y: -165.0389216719628
+      positionAbsolute:
+        x: 975.5307302846356
+        y: -165.0389216719628
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: 8501c3e4-e615-483f-acee-ac3b5a95b66a
+            value: '0'
+            varType: number
+            variable_selector:
+            - '1735888359454'
+            - search_type_is_valid
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 126
+      id: '1735621482897'
+      position:
+        x: 663.8252246516744
+        y: 93.96107832803719
+      positionAbsolute:
+        x: 663.8252246516744
+        y: 93.96107832803719
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(class_name:str) -> dict:\n    \n    if \"academicsearch\"\
+          \ in class_name.lower():\n        search_type_auto = \"academicSearch\"\n\
+          \    elif \"socialsearch\" in class_name.lower():\n        search_type_auto\
+          \ = \"socialSearch\"\n    elif \"sciencesearch\" in class_name.lower():\n\
+          \        search_type_auto = \"scienceSearch\"\n    elif \"videosearch\"\
+          \ in class_name.lower():\n        search_type_auto = \"videoSearch\"\n \
+          \   elif \"websearch\" in class_name.lower():\n        search_type_auto\
+          \ = \"webSearch\"\n    elif \"not_needed\" in class_name.lower():\n    \
+          \    search_type_auto = \"not_needed\"\n    else:\n        search_type_auto\
+          \ = \"not_needed\"\n        \n    return {\"search_type_auto\": search_type_auto}\n\
+          \        "
+        code_language: python3
+        desc: ''
+        outputs:
+          search_type_auto:
+            children: null
+            type: string
+        selected: false
+        title: searchtype_extractor
+        type: code
+        variables:
+        - value_selector:
+          - '1735621459075'
+          - text
+          variable: class_name
+      height: 54
+      id: '1735621498733'
+      position:
+        x: 975.5307302846356
+        y: -59.03892167196281
+      positionAbsolute:
+        x: 975.5307302846356
+        y: -59.03892167196281
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: b5dd72d7-68a8-4334-a6b3-7fb083808289
+            value: not_needed
+            varType: string
+            variable_selector:
+            - '1735621498733'
+            - search_type_auto
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: need search auto
+        type: if-else
+      height: 126
+      id: '1735621539495'
+      position:
+        x: 975.5307302846356
+        y: 5.961078328037189
+      positionAbsolute:
+        x: 975.5307302846356
+        y: 5.961078328037189
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: searchtype聚合器
+        type: variable-aggregator
+        variables:
+        - - '1735620050777'
+          - search_type
+        - - '1735621498733'
+          - search_type_auto
+      height: 138
+      id: '1735621595418'
+      position:
+        x: 1244.0717387094946
+        y: 176.55587174802534
+      positionAbsolute:
+        x: 1244.0717387094946
+        y: 176.55587174802534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\nfrom jinja2 import Template\n\ndef formatChatHistoryAsString(all_history):\n\
+          \    type_map = {\n        \"user\": \"human\",\n        \"assistant\":\
+          \ \"ai\"\n    }\n    history_formatted = \"\\n\".join([\n        f\"{type_map[dialog['role']]}:\
+          \ {dialog['content']}\" for dialog in all_history\n    ])\n    return history_formatted\n\
+          \ndef main(user_input: str, all_history: str, search_type: str):\n    search_handlers\
+          \ = {\n        'webSearch': {\n            'activeEngines': [],\n      \
+          \      'rerank': True,\n            'rerankThreshold': 0,\n            'searchWeb':\
+          \ True,\n            'summarizer': True,\n        },\n        'academicSearch':\
+          \ {\n            'activeEngines': [],\n            'rerank': True,\n   \
+          \         'rerankThreshold': 0,\n            'searchWeb': True,\n      \
+          \      'summarizer': False,\n        },\n        'writingAssistant': {\n\
+          \            'activeEngines': [],\n            'rerank': True,\n       \
+          \     'rerankThreshold': 0,\n            'searchWeb': False,\n         \
+          \   'summarizer': False,\n        },\n        'scienceSearch': {\n     \
+          \       'activeEngines': [],\n            'rerank': False,\n           \
+          \ 'rerankThreshold': 0,\n            'searchWeb': True,\n            'summarizer':\
+          \ False,\n        },\n        'videoSearch': {\n            'activeEngines':\
+          \ [],\n            'rerank': True,\n            'rerankThreshold': 0,\n\
+          \            'searchWeb': True,\n            'summarizer': False,\n    \
+          \    },\n        'socialSearch': {\n            'activeEngines': [],\n \
+          \           'rerank': True,\n            'rerankThreshold': 0,\n       \
+          \     'searchWeb': True,\n            'summarizer': False,\n        }\n\
+          \    }\n\n    search_retriever_prompt = {\n        'webSearch': Template(\"\
+          \"\"\nYou are an AI question rephraser. You will be given a conversation\
+          \ and a follow-up question,  you will have to rephrase the follow up question\
+          \ so it is a standalone question and can be used by another LLM to search\
+          \ the web for information to answer it.\n\nExample:\n1. Follow up question:\
+          \ What is the capital of France\nRephrased question: Capital of france\n\
+          \n2. Follow up question: What is Docker?\nRephrased question: What is Docker\n\
+          \n3. Follow up question: How does stable diffusion work?\nRephrased: Stable\
+          \ diffusion working\n\nConversation:\n{{all_history}}\n\nFollow up question:\
+          \ {{query}}\nRephrased question:\"\"\".strip()),\n        'academicSearch':\
+          \ Template(\"\"\"You will be given a conversation below and a follow up\
+          \ question. You need to rephrase the follow-up question if needed so it\
+          \ is a standalone question that can be used by the LLM to search the web\
+          \ for information.\n\nExample:\n1. Follow up question: How does stable diffusion\
+          \ work?\nRephrased: Stable diffusion working\n\n2. Follow up question: What\
+          \ is linear algebra?\nRephrased: Linear algebra\n\n3. Follow up question:\
+          \ What is the third law of thermodynamics?\nRephrased: Third law of thermodynamics\n\
+          \nConversation:\n{{all_history}}\n\nFollow up question: {{query}}\nRephrased\
+          \ question:\"\"\".strip()),\n        'scienceSearch': Template(\"\"\"\n\
+          You will be given a conversation below and a follow up question. You need\
+          \ to rephrase the follow-up question if needed so it is a standalone question\
+          \ that can be used by the LLM to search the web for information.\n\nExample:\
+          \ \n1. Follow up question: What is the atomic radius of S? \nRephrased:\
+          \ Atomic radius of S \n\n2. Follow up question: What is linear algebra?\n\
+          Rephrased: Linear algebra\n\n3. Follow up question: What is the third law\
+          \ of thermodynamics? \nRephrased: Third law of thermodynamics\n\nConversations:\n\
+          {{all_history}}\n\nFollow up question: {{search_query}}\nRephrased question:\"\
+          \"\".strip()),\n        'videoSearch': Template(\"\"\"\nYou will be given\
+          \ a conversation below and a follow up question. You need to rephrase the\
+          \ follow-up question if needed so it is a standalone question that can be\
+          \ used by the LLM to search the web for information.\n\nExample: \n1. Follow\
+          \ up question: How does an A.C work? \nRephrased: A.C working \n\n2. Follow\
+          \ up question: Any cool new AI breakthroughs?\nRephrased: New AI breakthroughs\n\
+          \n3. Follow up question: What is theory of relativity? \nRephrased: What\
+          \ is theory of relativity? \n\nConversations:\n{{all_history}}\n\nFollow\
+          \ up question:{{search_query}} \nRephrased question:\"\"\".strip()),\n \
+          \       'socialSearch': Template(\"\"\"\nYou will be given a conversation\
+          \ below and a follow up question. You need to rephrase the follow-up question\
+          \ if needed so it is a standalone question that can be used by the LLM to\
+          \ search the web for information.\n\nExample: \n1. Follow up question: Which\
+          \ company is most likely to create an AGI \nRephrased: Which company is\
+          \ most likely to create an AGI \n\n2. Follow up question: Is Earth flat?\n\
+          Rephrased: Is Earth flat?\n\n3. Follow up question: Is there life on Mars?\
+          \ \nRephrased: Is there life on Mars? \n\nConversations:\n{{all_history}}\n\
+          \nFollow up question: {{search_query}}\nRephrased question:\"\"\".strip())\n\
+          \    }\n\n    search_query = user_input\n\n    try:\n        all_history_list\
+          \ = json.loads(all_history)\n    except:\n        all_history_list = []\n\
+          \    all_history_list.append({\"role\": \"user\", \"content\": search_query})\n\
+          \    history_with_searchQuery = formatChatHistoryAsString(all_history_list)\n\
+          \n    return {\n        \"search_query\": search_query,\n        \"search_config\"\
+          : json.dumps(search_handlers[search_type], ensure_ascii=False),\n      \
+          \  \"search_retriever_prompt\": search_retriever_prompt[search_type].render(all_history=history_with_searchQuery,query=search_query),\n\
+          \        \"history_with_searchQuery\": history_with_searchQuery\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          history_with_searchQuery:
+            children: null
+            type: string
+          search_config:
+            children: null
+            type: string
+          search_query:
+            children: null
+            type: string
+          search_retriever_prompt:
+            children: null
+            type: string
+        selected: false
+        title: parse_search_params
+        type: code
+        variables:
+        - value_selector:
+          - '1735620050777'
+          - all_history
+          variable: all_history
+        - value_selector:
+          - '1735620050777'
+          - query
+          variable: user_input
+        - value_selector:
+          - '1735621595418'
+          - output
+          variable: search_type
+      height: 54
+      id: '1735621642839'
+      position:
+        x: 1554.1255237046241
+        y: 176.55587174802534
+      positionAbsolute:
+        x: 1554.1255237046241
+        y: 176.55587174802534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 8e2312b7-5208-4fc9-a995-d147b9251da3
+          role: system
+          text: '{{#1735621642839.search_retriever_prompt#}}'
+        selected: false
+        title: search_retriever
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1735621923830'
+      position:
+        x: 1845.82812699463
+        y: 176.55587174802534
+      positionAbsolute:
+        x: 1845.82812699463
+        y: 176.55587174802534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: b4c17d3a-5d21-43bd-8e65-88e4bc7acc58
+            value: academicSearch
+            varType: string
+            variable_selector:
+            - '1735621595418'
+            - output
+          id: 'true'
+          logical_operator: and
+        - case_id: fbd0dd53-62d4-46f1-aff8-ce281d7ae049
+          conditions:
+          - comparison_operator: is
+            id: d11452ba-0084-4897-9107-849cd050b39e
+            value: socialSearch
+            varType: string
+            variable_selector:
+            - '1735621595418'
+            - output
+          logical_operator: and
+        - case_id: c7749aab-14cd-46ed-bced-8722a7faa2e5
+          conditions:
+          - comparison_operator: is
+            id: a0920bcf-d1a0-4be7-a97c-7de4b9e37206
+            value: scienceSearch
+            varType: string
+            variable_selector:
+            - '1735621595418'
+            - output
+          logical_operator: and
+        - case_id: 51ade959-9d14-489f-a7fc-53d5c15bbaa8
+          conditions:
+          - comparison_operator: is
+            id: 7536baf9-3bfa-422d-af51-2687d0120d7b
+            value: videoSearch
+            varType: string
+            variable_selector:
+            - '1735621595418'
+            - output
+          logical_operator: and
+        - case_id: 55c59898-19e0-403b-aecc-0e94b82b2d99
+          conditions:
+          - comparison_operator: is
+            id: 7bc01a13-a93b-45ac-a344-0c08a883a7ec
+            value: webSearch
+            varType: string
+            variable_selector:
+            - '1735621595418'
+            - output
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支-搜索
+        type: if-else
+      height: 318
+      id: '1735621987777'
+      position:
+        x: 2124.34114344466
+        y: 176.55587174802534
+      positionAbsolute:
+        x: 2124.34114344466
+        y: 176.55587174802534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: arxiv
+        provider_name: arxiv
+        provider_type: builtin
+        selected: false
+        title: Arxiv 搜索
+        tool_configurations: {}
+        tool_label: Arxiv 搜索
+        tool_name: arxiv_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1735621923830.text#}}'
+        type: tool
+      height: 54
+      id: '1735622103037'
+      position:
+        x: 2423.016143266134
+        y: 146.89042802335217
+      positionAbsolute:
+        x: 2423.016143266134
+        y: 146.89042802335217
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: 聚合搜索信息
+        type: variable-aggregator
+        variables:
+        - - '1735623781704'
+          - searxng_json_str
+        - - '1735623689534'
+          - searxng_json_str
+        - - '1735622337038'
+          - searxng_json_str
+        - - '1735622174248'
+          - searxng_json_str
+        - - '1735622103037'
+          - text
+      height: 216
+      id: '1735622130596'
+      position:
+        x: 2741.530730284636
+        y: 146.89042802335217
+      positionAbsolute:
+        x: 2741.530730284636
+        y: 146.89042802335217
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: searxng
+        provider_name: searxng
+        provider_type: builtin
+        selected: false
+        title: SearXNG 搜索_社交
+        tool_configurations:
+          search_type: social_media
+        tool_label: SearXNG 搜索
+        tool_name: searxng_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1735621923830.text#}}'
+        type: tool
+      height: 90
+      id: '1735622151640'
+      position:
+        x: 2423.016143266134
+        y: 220.09780936175883
+      positionAbsolute:
+        x: 2423.016143266134
+        y: 220.09780936175883
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\ndef main(searxng_json: list) -> dict:\n    return {\n\
+          \        \"searxng_json_str\": json.dumps(searxng_json[:20], ensure_ascii=False),\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          searxng_json_str:
+            children: null
+            type: string
+        selected: false
+        title: searxng_json_str_社交
+        type: code
+        variables:
+        - value_selector:
+          - '1735622151640'
+          - json
+          variable: searxng_json
+      height: 54
+      id: '1735622174248'
+      position:
+        x: 2423.016143266134
+        y: 321.69991849127166
+      positionAbsolute:
+        x: 2423.016143266134
+        y: 321.69991849127166
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: searxng
+        provider_name: searxng
+        provider_type: builtin
+        selected: false
+        title: SearXNG 搜索_科学
+        tool_configurations:
+          search_type: science
+        tool_label: SearXNG 搜索
+        tool_name: searxng_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1735621923830.text#}}'
+        type: tool
+      height: 90
+      id: '1735622296281'
+      position:
+        x: 2423.016143266134
+        y: 395.2805862388101
+      positionAbsolute:
+        x: 2423.016143266134
+        y: 395.2805862388101
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\ndef main(searxng_json: list) -> dict:\n    return {\n\
+          \        \"searxng_json_str\": json.dumps(searxng_json[:20], ensure_ascii=False),\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          searxng_json_str:
+            children: null
+            type: string
+        selected: false
+        title: searxng_json_str_科学
+        type: code
+        variables:
+        - value_selector:
+          - '1735622296281'
+          - json
+          variable: searxng_json
+      height: 54
+      id: '1735622337038'
+      position:
+        x: 2423.016143266134
+        y: 494.24367954677706
+      positionAbsolute:
+        x: 2423.016143266134
+        y: 494.24367954677706
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: searxng
+        provider_name: searxng
+        provider_type: builtin
+        selected: false
+        title: SearXNG 搜索_视频
+        tool_configurations:
+          search_type: videos
+        tool_label: SearXNG 搜索
+        tool_name: searxng_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1735621923830.text#}}'
+        type: tool
+      height: 90
+      id: '1735623655615'
+      position:
+        x: 2423.016143266134
+        y: 559.9072998296783
+      positionAbsolute:
+        x: 2423.016143266134
+        y: 559.9072998296783
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\ndef main(searxng_json: list) -> dict:\n    return {\n\
+          \        \"searxng_json_str\": json.dumps(searxng_json[:20], ensure_ascii=False),\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          searxng_json_str:
+            children: null
+            type: string
+        selected: false
+        title: searxng_json_str_视频
+        type: code
+        variables:
+        - value_selector:
+          - '1735623655615'
+          - json
+          variable: searxng_json
+      height: 54
+      id: '1735623689534'
+      position:
+        x: 2423.016143266134
+        y: 660.1899010484182
+      positionAbsolute:
+        x: 2423.016143266134
+        y: 660.1899010484182
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: searxng
+        provider_name: searxng
+        provider_type: builtin
+        selected: false
+        title: SearXNG 搜索_全网
+        tool_configurations:
+          search_type: general
+        tool_label: SearXNG 搜索
+        tool_name: searxng_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1735621923830.text#}}'
+        type: tool
+      height: 90
+      id: '1735623759036'
+      position:
+        x: 2423.016143266134
+        y: 728.4925371528652
+      positionAbsolute:
+        x: 2423.016143266134
+        y: 728.4925371528652
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(searxng_json: list) -> dict:\n    return {\n\
+          \        \"searxng_json_str\": json.dumps(searxng_json[:20], ensure_ascii=False),\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          searxng_json_str:
+            children: null
+            type: string
+        selected: false
+        title: searxng_json_str_全网
+        type: code
+        variables:
+        - value_selector:
+          - '1735623759036'
+          - json
+          variable: searxng_json
+      height: 54
+      id: '1735623781704'
+      position:
+        x: 2423.016143266134
+        y: 832.7336621039238
+      positionAbsolute:
+        x: 2423.016143266134
+        y: 832.7336621039238
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\nclass Document:\n    def __init__(self, page_content:\
+          \ str, metadata: dict):\n        self.page_content = page_content\n    \
+          \    self.metadata = metadata\n\n    # 返回类的字典\n    def to_dict(self):\n\
+          \        return {\n            \"page_content\": self.page_content,\n  \
+          \          \"metadata\": self.metadata,\n        }\n\n\ndef parse_articles(content):\n\
+          \    if '\\n' not in content.strip():\n        return []\n    # Split content\
+          \ into individual articles based on double newline\n    articles = content.split('\\\
+          n\\n')\n\n    parsed_articles = []\n\n    for article in articles:\n   \
+          \     lines = article.split('\\n')\n\n        # Extract fields line by line\n\
+          \        published = lines[0].replace('Published: ', '').strip()\n     \
+          \   title = lines[1].replace('Title: ', '').strip()\n        authors = [author.strip()\
+          \ for author in lines[2].replace('Authors: ', '').strip().split(',')]\n\
+          \        summary = ' '.join(line.strip() for line in lines[3:]).replace('Summary:\
+          \ ', '').strip()\n\n        # Append parsed article as a dictionary\n  \
+          \      parsed_articles.append({\n            \"Published\": published,\n\
+          \            \"Title\": title,\n            \"Authors\": authors,\n    \
+          \        \"Summary\": summary\n        })\n\n    return parsed_articles\n\
+          \ndef main(searxng_json_str: str, search_type: str):\n    if search_type\
+          \ == 'academicSearch':\n        parsed_articles = parse_articles(searxng_json_str)\n\
+          \        documents = [\n            Document(\n                page_content=json.dumps(article[\"\
+          Summary\"], ensure_ascii=False),  # 这应该是 res.content\n                metadata={\n\
+          \                    \"title\": article[\"Title\"],\n                  \
+          \  \"published\": article[\"Published\"],\n                    \"authors\"\
+          : article[\"Authors\"],\n                }\n            ).to_dict()\n  \
+          \          for article in parsed_articles\n        ]\n        documents\
+          \ = documents[:5]\n    else:\n        searxng_json = json.loads(searxng_json_str)\n\
+          \        documents = [\n            Document(\n                page_content=result.get(\"\
+          content\", result.get(\"title\", \"\")),  # 这应该是 res.content\n         \
+          \       metadata={\n                    \"title\": result.get(\"title\"\
+          , \"\"),\n                    \"url\": result.get(\"url\", \"\"),\n    \
+          \                **({\"img_src\": result[\"img_src\"]} if result.get(\"\
+          img_src\") else {}),\n                }\n            ).to_dict()\n     \
+          \       for result in searxng_json\n        ]\n\n    return {\n        \"\
+          docs\": json.dumps(documents, ensure_ascii=False),\n        \"docs_list\"\
+          : [doc_json[\"page_content\"] for doc_json in documents]\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          docs:
+            children: null
+            type: string
+          docs_list:
+            children: null
+            type: array[string]
+        selected: false
+        title: fetch_docs
+        type: code
+        variables:
+        - value_selector:
+          - '1735622130596'
+          - output
+          variable: searxng_json_str
+        - value_selector:
+          - '1735621595418'
+          - output
+          variable: search_type
+      height: 54
+      id: '1735625106438'
+      position:
+        x: 3033.4049977525524
+        y: 146.89042802335217
+      positionAbsolute:
+        x: 3033.4049977525524
+        y: 146.89042802335217
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: a7443a22-809d-49a2-bcf3-3438c9262e22
+            value: ''
+            varType: string
+            variable_selector:
+            - '1735620050777'
+            - mode
+          id: 'true'
+          logical_operator: and
+        - case_id: 96ccbfb6-5c63-498d-802e-c4703de19f66
+          conditions:
+          - comparison_operator: is
+            id: a141e367-a1e5-46e3-b78f-6bae48209537
+            value: speed
+            varType: string
+            variable_selector:
+            - '1735620050777'
+            - mode
+          id: 96ccbfb6-5c63-498d-802e-c4703de19f66
+          logical_operator: and
+        - case_id: 64a5d5f6-8be4-4c71-b53f-07c769568509
+          conditions:
+          - comparison_operator: is
+            id: 003bd91b-78a4-4e2d-9c90-b0d89a981db7
+            value: balanced
+            varType: string
+            variable_selector:
+            - '1735620050777'
+            - mode
+          id: 64a5d5f6-8be4-4c71-b53f-07c769568509
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支-rerank模式
+        type: if-else
+      height: 222
+      id: '1735625944623'
+      position:
+        x: 3321.323220782594
+        y: 146.89042802335217
+      positionAbsolute:
+        x: 3321.323220782594
+        y: 146.89042802335217
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: continue-on-error
+        is_parallel: true
+        iterator_selector:
+        - '1735625106438'
+        - docs_list
+        output_selector:
+        - '1735627601855'
+        - doc_embedding
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1735626108617start
+        title: 迭代
+        type: iteration
+        width: 388
+      height: 148
+      id: '1735626108617'
+      position:
+        x: 3609.4081968342343
+        y: 345.6602554476992
+      positionAbsolute:
+        x: 3609.4081968342343
+        y: 345.6602554476992
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 388
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1735626108617start
+      parentId: '1735626108617'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 3633.4081968342343
+        y: 413.6602554476992
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "import json\nimport requests\n\ndef get_embedding(text, base_url, api_key,\
+          \ model=\"text-embedding-ada-002\"):\n    api_url = f\"{base_url}/embeddings\"\
+          \n    headers = {\n        \"Authorization\": f\"Bearer {api_key}\",\n \
+          \       \"Content-Type\": \"application/json\"\n    }\n    # 请求数据体\n   \
+          \ data = {\n        \"model\": model,\n        \"input\": text\n    }\n\n\
+          \    try:\n        # 发送POST请求\n        response = requests.post(api_url,\
+          \ headers=headers, json=data)\n        response.raise_for_status()  # 检查请求是否成功\n\
+          \n        # 解析响应\n        embedding = response.json().get('data')[0].get('embedding')\n\
+          \        return embedding\n\n    except requests.exceptions.RequestException\
+          \ as e:\n        print(f\"Error occurred: {e}\")\n        return None\n\n\
+          def main(query:str, base_url:str, api_key:str):\n    # 最多重试3次\n    max_retries\
+          \ = 3\n    for attempt in range(max_retries):\n        try:\n          \
+          \  # 调用get_embedding函数\n            embedding = get_embedding(query, base_url,\
+          \ api_key)\n            # 如果成功获取嵌入，返回结果\n            if embedding is not\
+          \ None:\n                return {\"query_embedding\": json.dumps(embedding,\
+          \ ensure_ascii=False)}\n        except Exception as e:\n            print(f\"\
+          Attempt {attempt + 1} failed: {e}\")\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          query_embedding:
+            children: null
+            type: string
+        selected: false
+        title: embedding_query
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - custom_openai_base_url
+          variable: base_url
+        - value_selector:
+          - env
+          - custom_openai_api_key
+          variable: api_key
+        - value_selector:
+          - '1735621923830'
+          - text
+          variable: query
+      height: 54
+      id: '1735626412322'
+      position:
+        x: 3609.4081968342343
+        y: 275.7263361767359
+      positionAbsolute:
+        x: 3609.4081968342343
+        y: 275.7263361767359
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\nimport requests\n\ndef get_embedding(text, base_url, api_key,\
+          \ model=\"text-embedding-ada-002\"):\n    api_url = f\"{base_url}/embeddings\"\
+          \n    headers = {\n        \"Authorization\": f\"Bearer {api_key}\",\n \
+          \       \"Content-Type\": \"application/json\"\n    }\n    # 请求数据体\n   \
+          \ data = {\n        \"model\": model,\n        \"input\": text\n    }\n\n\
+          \    try:\n        # 发送POST请求\n        response = requests.post(api_url,\
+          \ headers=headers, json=data)\n        response.raise_for_status()  # 检查请求是否成功\n\
+          \n        # 解析响应\n        embedding = response.json().get('data')[0].get('embedding')\n\
+          \        return embedding\n\n    except requests.exceptions.RequestException\
+          \ as e:\n        print(f\"Error occurred: {e}\")\n        return None\n\n\
+          def main(index:int, doc_str:str, base_url:str, api_key:str):\n    # 最多重试3次\n\
+          \    max_retries = 3\n    for attempt in range(max_retries):\n        try:\n\
+          \            # 调用get_embedding函数\n            embedding = get_embedding(doc_str,\
+          \ base_url, api_key)\n            # 如果成功获取嵌入，返回结果\n            if embedding\
+          \ is not None:\n                return {\"doc_embedding\": json.dumps({index:embedding},\
+          \ ensure_ascii=False)}\n        except Exception as e:\n            print(f\"\
+          Attempt {attempt + 1} failed: {e}\")"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1735626108617'
+        outputs:
+          doc_embedding:
+            children: null
+            type: string
+        selected: false
+        title: embedding_doc
+        type: code
+        variables:
+        - value_selector:
+          - '1735626108617'
+          - item
+          variable: doc_str
+        - value_selector:
+          - env
+          - custom_openai_base_url
+          variable: base_url
+        - value_selector:
+          - env
+          - custom_openai_api_key
+          variable: api_key
+        - value_selector:
+          - '1735626108617'
+          - index
+          variable: index
+      height: 54
+      id: '1735627601855'
+      parentId: '1735626108617'
+      position:
+        x: 128
+        y: 65
+      positionAbsolute:
+        x: 3737.4081968342343
+        y: 410.6602554476992
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "import json\nimport math\n\ndef compute_similarity(x: list, y: list,\
+          \ similarity_measure: str = 'cosine') -> float:\n    \"\"\"\n    Compute\
+          \ the similarity between two vectors based on the chosen similarity measure.\n\
+          \n    Parameters:\n    - x (list): First vector.\n    - y (list): Second\
+          \ vector.\n    - similarity_measure (str): Similarity measure, either 'cosine'\
+          \ or 'dot'.\n\n    Returns:\n    - float: Similarity score.\n    \"\"\"\n\
+          \    if similarity_measure == 'cosine':\n        return cosine_similarity(x,\
+          \ y)\n    elif similarity_measure == 'dot':\n        return dot_product(x,\
+          \ y)\n    else:\n        raise ValueError('Invalid similarity measure')\n\
+          \ndef cosine_similarity(x: list, y: list) -> float:\n    \"\"\"\n    Compute\
+          \ the cosine similarity between two vectors.\n\n    Parameters:\n    - x\
+          \ (list): First vector.\n    - y (list): Second vector.\n\n    Returns:\n\
+          \    - float: Cosine similarity score.\n    \"\"\"\n    dot_product_value\
+          \ = dot_product(x, y)\n    norm_x = math.sqrt(sum(xi**2 for xi in x))\n\
+          \    norm_y = math.sqrt(sum(yi**2 for yi in y))\n    return dot_product_value\
+          \ / (norm_x * norm_y) if norm_x != 0 and norm_y != 0 else 0.0\n\ndef dot_product(x:\
+          \ list, y: list) -> float:\n    \"\"\"\n    Compute the dot product of two\
+          \ vectors.\n\n    Parameters:\n    - x (list): First vector.\n    - y (list):\
+          \ Second vector.\n\n    Returns:\n    - float: Dot product value.\n    \"\
+          \"\"\n    return sum(xi * yi for xi, yi in zip(x, y))\n\nclass RerankDocs:\n\
+          \    def __init__(self, config):\n        self.config = config\n\n    def\
+          \ rerank_docs(\n        self,\n        query_embedding: list,\n        docs:\
+          \ list,\n        sorted_doc_embeddings: list,\n        # file_ids: List[str]\n\
+          \    ) -> list:\n        # if len(docs) == 0 and len(file_ids) == 0:\n \
+          \       #     return docs\n        if len(docs) == 0:\n            return\
+          \ docs\n\n        # Step 1: 读取文件数据\n        # files_data = []\n        #\
+          \ for file_id in file_ids:\n        #     file_path = os.path.join(os.getcwd(),\
+          \ 'uploads', file_id)\n        #     content_path = file_path + '-extracted.json'\n\
+          \        #     embeddings_path = file_path + '-embeddings.json'\n      \
+          \  #\n        #     with open(content_path, 'r', encoding='utf-8') as f:\n\
+          \        #         content = json.load(f)\n        #     with open(embeddings_path,\
+          \ 'r', encoding='utf-8') as f:\n        #         embeddings_data = json.load(f)\n\
+          \        #\n        #     file_similarity_search_object = [\n        # \
+          \        {\n        #             'fileName': content['title'],\n      \
+          \  #             'content': c,\n        #             'embeddings': embeddings_data['embeddings'][i],\n\
+          \        #         }\n        #         for i, c in enumerate(content['contents'])\n\
+          \        #     ]\n        #     files_data.extend(file_similarity_search_object)\n\
+          \n        docs_with_content = [doc for doc in docs if doc[\"page_content\"\
+          ] and len(doc[\"page_content\"]) > 0]\n\n        # 获取文档的嵌入向量\n\n       \
+          \ # 合并文件数据\n        # docs_with_content.extend([\n        #     Document(page_content=file_data['content'],\
+          \ metadata={'title': file_data['fileName'], 'url': 'File'})\n        # \
+          \    for file_data in files_data\n        # ])\n        # doc_embeddings.extend([file_data['embeddings']\
+          \ for file_data in files_data])\n\n        # 计算相似度\n        similarity =\
+          \ [\n            {'index': i, 'similarity': compute_similarity(query_embedding,\
+          \ doc_embedding)}\n            for i, doc_embedding in enumerate(sorted_doc_embeddings)\n\
+          \        ]\n\n        # 排序并返回前 15 个文档\n        sorted_docs = sorted(\n \
+          \           [sim for sim in similarity if sim['similarity'] > (self.config.get('rerankThreshold',\
+          \ 0.3))],\n            key=lambda x: x['similarity'],\n            reverse=True\n\
+          \        )[:15]\n\n        return [docs_with_content[sim['index']] for sim\
+          \ in sorted_docs]\n\ndef main(query_embedding_str: str, doc_embeddings:\
+          \ list, docs: str, config: str):\n    config = json.loads(config)\n    rerankDocs\
+          \ = RerankDocs(config)\n    sorted_doc_embeddings = [\n        value\n \
+          \       for _, value in sorted(\n            (list(json.loads(d).items())[0]\
+          \ for d in doc_embeddings), key=lambda x: x[0]\n        )\n    ]\n    res_docs\
+          \ = rerankDocs.rerank_docs(\n        query_embedding=json.loads(query_embedding_str),\n\
+          \        sorted_doc_embeddings=sorted_doc_embeddings,\n        docs=json.loads(docs)\n\
+          \    )\n\n    return {\n        \"rerank_docs_str\": json.dumps(res_docs,\
+          \ ensure_ascii=False)\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          rerank_docs_str:
+            children: null
+            type: string
+        selected: false
+        title: rerank_docs_balanced
+        type: code
+        variables:
+        - value_selector:
+          - '1735626108617'
+          - output
+          variable: doc_embeddings
+        - value_selector:
+          - '1735625106438'
+          - docs
+          variable: docs
+        - value_selector:
+          - '1735621642839'
+          - search_config
+          variable: config
+        - value_selector:
+          - '1735626412322'
+          - query_embedding
+          variable: query_embedding_str
+      height: 54
+      id: '1735627707698'
+      position:
+        x: 3609.4081968342343
+        y: 506.64022056199195
+      positionAbsolute:
+        x: 3609.4081968342343
+        y: 506.64022056199195
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\nclass RerankDocs:\n    def __init__(self, config):\n\
+          \        self.config = config\n\n    def rerank_docs(\n        self,\n \
+          \       docs: list,\n        # file_ids: List[str]\n    ):\n        # if\
+          \ len(docs) == 0 and len(file_ids) == 0:\n        #     return docs\n  \
+          \      if len(docs) == 0:\n            return docs\n\n        # Step 1:\
+          \ 读取文件数据\n        # files_data = []\n        # for file_id in file_ids:\n\
+          \        #     file_path = os.path.join(os.getcwd(), 'uploads', file_id)\n\
+          \        #     content_path = file_path + '-extracted.json'\n        # \
+          \    embeddings_path = file_path + '-embeddings.json'\n        #\n     \
+          \   #     with open(content_path, 'r', encoding='utf-8') as f:\n       \
+          \ #         content = json.load(f)\n        #     with open(embeddings_path,\
+          \ 'r', encoding='utf-8') as f:\n        #         embeddings_data = json.load(f)\n\
+          \        #\n        #     file_similarity_search_object = [\n        # \
+          \        {\n        #             'fileName': content['title'],\n      \
+          \  #             'content': c,\n        #             'embeddings': embeddings_data['embeddings'][i],\n\
+          \        #         }\n        #         for i, c in enumerate(content['contents'])\n\
+          \        #     ]\n        #     files_data.extend(file_similarity_search_object)\n\
+          \n        docs_with_content = [doc for doc in docs if doc[\"page_content\"\
+          ] and len(doc[\"page_content\"]) > 0]\n\n        # if files_data:\n    \
+          \    #     # 获取查询的嵌入向量\n        #     query_embedding = embeddings.embed_query(query)\n\
+          \        #\n        #     file_docs = [\n        #         Document(page_content=file_data['content'],\
+          \ metadata={'title': file_data['fileName'], 'url': 'File'})\n        # \
+          \        for file_data in files_data\n        #     ]\n        #\n     \
+          \   #     similarity = [\n        #         {'index': i, 'similarity': compute_similarity(query_embedding,\
+          \ file_data['embeddings'])}\n        #         for i, file_data in enumerate(files_data)\n\
+          \        #     ]\n        #\n        #     sorted_docs = sorted(\n     \
+          \   #         [sim for sim in similarity if sim['similarity'] > (self.config.get('rerankThreshold',\
+          \ 0.3))],\n        #         key=lambda x: x['similarity'],\n        # \
+          \        reverse=True\n        #     )[:15]\n        #\n        #     sorted_docs\
+          \ = [file_docs[sim['index']] for sim in sorted_docs]\n        #\n      \
+          \  #     # 如果docs_with_content不为空，限制最终文档数量为 15\n        #     sorted_docs\
+          \ = sorted_docs[:8] if docs_with_content else sorted_docs\n        #   \
+          \  return sorted_docs + docs_with_content[:15 - len(sorted_docs)]\n    \
+          \    #\n        # else:\n        return docs_with_content[:15]\n       \
+          \ \ndef main(docs: str, config: str):\n    config = json.loads(config)\n\
+          \    rerankDocs = RerankDocs(config)\n\n    res_docs = rerankDocs.rerank_docs(\n\
+          \        docs=json.loads(docs)\n    )\n\n    return {\n        \"rerank_docs_str\"\
+          : json.dumps(res_docs, ensure_ascii=False)\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          rerank_docs_str:
+            children: null
+            type: string
+        selected: false
+        title: rerank_docs_speed
+        type: code
+        variables:
+        - value_selector:
+          - '1735625106438'
+          - docs
+          variable: docs
+        - value_selector:
+          - '1735621642839'
+          - search_config
+          variable: config
+      height: 54
+      id: '1735631311203'
+      position:
+        x: 3609.4081968342343
+        y: 176.55587174802534
+      positionAbsolute:
+        x: 3609.4081968342343
+        y: 176.55587174802534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: 变量聚合器-docs
+        type: variable-aggregator
+        variables:
+        - - '1735631311203'
+          - rerank_docs_str
+        - - '1735627707698'
+          - rerank_docs_str
+        - - '1735633851188'
+          - empty_docs
+      height: 164
+      id: '1735631367970'
+      position:
+        x: 4082.3052094131663
+        y: 176.55587174802534
+      positionAbsolute:
+        x: 4082.3052094131663
+        y: 176.55587174802534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "from datetime import datetime\nimport json\nfrom jinja2 import Template\n\
+          \ndef process_docs(docs):\n    return \"\\n\".join([f\"{index + 1}. {docs[index]['page_content']}\"\
+          \ for index in range(len(docs))])\n\ndef get_current_utc_datetime():\n \
+          \   # 获取当前时间（UTC时区）\n    current_datetime = datetime.utcnow()\n    # 将其格式化为ISO\
+          \ 8601格式\n    return current_datetime.isoformat() + 'Z'  # 'Z'表示UTC时间\n\n\
+          def main(docs: str, search_type: str, ai_name:str) -> dict:\n\n    processed_docs\
+          \ = process_docs(json.loads(docs)) if docs else \"\"\n\n    summary_templates\
+          \ = {\n        \"webSearch\": Template(\"\"\"\nYou are {{name}}, an AI model\
+          \ skilled in web search and crafting detailed, engaging, and well-structured\
+          \ answers. You excel at summarizing web pages and extracting relevant information\
+          \ to create professional, blog-style responses.\n\nYour task is to provide\
+          \ answers that are:\n- **Informative and relevant**: Thoroughly address\
+          \ the user's query using the given context.\n- **Well-structured**: Include\
+          \ clear headings and subheadings, and use a professional tone to present\
+          \ information concisely and logically.\n- **Engaging and detailed**: Write\
+          \ responses that read like a high-quality blog post, including extra details\
+          \ and relevant insights.\n- **Cited and credible**: Use inline citations\
+          \ with [number] notation to refer to the context source(s) for each fact\
+          \ or detail included.\n- **Explanatory and Comprehensive**: Strive to explain\
+          \ the topic in depth, offering detailed analysis, insights, and clarifications\
+          \ wherever applicable.\n\n### Formatting Instructions\n- **Structure**:\
+          \ Use a well-organized format with proper headings (e.g., \"## Example heading\
+          \ 1\" or \"## Example heading 2\"). Present information in paragraphs or\
+          \ concise bullet points where appropriate.\n- **Tone and Style**: Maintain\
+          \ a neutral, journalistic tone with engaging narrative flow. Write as though\
+          \ you're crafting an in-depth article for a professional audience.\n- **Markdown\
+          \ Usage**: Format your response with Markdown for clarity. Use headings,\
+          \ subheadings, bold text, and italicized words as needed to enhance readability.\n\
+          - **Length and Depth**: Provide comprehensive coverage of the topic. Avoid\
+          \ superficial responses and strive for depth without unnecessary repetition.\
+          \ Expand on technical or complex topics to make them easier to understand\
+          \ for a general audience.\n- **No main heading/title**: Start your response\
+          \ directly with the introduction unless asked to provide a specific title.\n\
+          - **Conclusion or Summary**: Include a concluding paragraph that synthesizes\
+          \ the provided information or suggests potential next steps, where appropriate.\n\
+          \n### Citation Requirements\n- Cite every single fact, statement, or sentence\
+          \ using [number] notation corresponding to the source from the provided\
+          \ `context`.\n- Integrate citations naturally at the end of sentences or\
+          \ clauses as appropriate. For example, \"The Eiffel Tower is one of the\
+          \ most visited landmarks in the world[1].\"\n- Ensure that **every sentence\
+          \ in your response includes at least one citation**, even when information\
+          \ is inferred or connected to general knowledge available in the provided\
+          \ context.\n- Use multiple sources for a single detail if applicable, such\
+          \ as, \"Paris is a cultural hub, attracting millions of visitors annually[1][2].\"\
+          \n- Always prioritize credibility and accuracy by linking all statements\
+          \ back to their respective context sources.\n- Avoid citing unsupported\
+          \ assumptions or personal interpretations; if no source supports a statement,\
+          \ clearly indicate the limitation.\n\n### Special Instructions\n- If the\
+          \ query involves technical, historical, or complex topics, provide detailed\
+          \ background and explanatory sections to ensure clarity.\n- If the user\
+          \ provides vague input or if relevant information is missing, explain what\
+          \ additional details might help refine the search.\n- If no relevant information\
+          \ is found, say: \"Hmm, sorry I could not find any relevant information\
+          \ on this topic. Would you like me to search again or ask something else?\"\
+          \ Be transparent about limitations and suggest alternatives or ways to reframe\
+          \ the query.\n\n### Example Output\n- Begin with a brief introduction summarizing\
+          \ the event or query topic.\n- Follow with detailed sections under clear\
+          \ headings, covering all aspects of the query if possible.\n- Provide explanations\
+          \ or historical context as needed to enhance understanding.\n- End with\
+          \ a conclusion or overall perspective if relevant.\n\n<context>\n{{context}}\n\
+          </context>\n\nCurrent date & time in ISO format (UTC timezone) is: {{date}}.\n\
+          \"\"\".strip()),\n        \"academicSearch\": Template(\"\"\"You are {{name}},\
+          \ an AI model skilled in web search and crafting detailed, engaging, and\
+          \ well-structured answers. You excel at summarizing web pages and extracting\
+          \ relevant information to create professional, blog-style responses.\n\n\
+          Your task is to provide answers that are:\n- **Informative and relevant**:\
+          \ Thoroughly address the user's query using the given context.\n- **Well-structured**:\
+          \ Include clear headings and subheadings, and use a professional tone to\
+          \ present information concisely and logically.\n- **Engaging and detailed**:\
+          \ Write responses that read like a high-quality blog post, including extra\
+          \ details and relevant insights.\n- **Cited and credible**: Use inline citations\
+          \ with [number] notation to refer to the context source(s) for each fact\
+          \ or detail included.\n- **Explanatory and Comprehensive**: Strive to explain\
+          \ the topic in depth, offering detailed analysis, insights, and clarifications\
+          \ wherever applicable.\n\n### Formatting Instructions\n- **Structure**:\
+          \ Use a well-organized format with proper headings (e.g., \"## Example heading\
+          \ 1\" or \"## Example heading 2\"). Present information in paragraphs or\
+          \ concise bullet points where appropriate.\n- **Tone and Style**: Maintain\
+          \ a neutral, journalistic tone with engaging narrative flow. Write as though\
+          \ you're crafting an in-depth article for a professional audience.\n- **Markdown\
+          \ Usage**: Format your response with Markdown for clarity. Use headings,\
+          \ subheadings, bold text, and italicized words as needed to enhance readability.\n\
+          - **Length and Depth**: Provide comprehensive coverage of the topic. Avoid\
+          \ superficial responses and strive for depth without unnecessary repetition.\
+          \ Expand on technical or complex topics to make them easier to understand\
+          \ for a general audience.\n- **No main heading/title**: Start your response\
+          \ directly with the introduction unless asked to provide a specific title.\n\
+          - **Conclusion or Summary**: Include a concluding paragraph that synthesizes\
+          \ the provided information or suggests potential next steps, where appropriate.\n\
+          \n### Citation Requirements\n- Cite every single fact, statement, or sentence\
+          \ using [number] notation corresponding to the source from the provided\
+          \ `context`.\n- Integrate citations naturally at the end of sentences or\
+          \ clauses as appropriate. For example, \"The Eiffel Tower is one of the\
+          \ most visited landmarks in the world[1].\"\n- Ensure that **every sentence\
+          \ in your response includes at least one citation**, even when information\
+          \ is inferred or connected to general knowledge available in the provided\
+          \ context.\n- Use multiple sources for a single detail if applicable, such\
+          \ as, \"Paris is a cultural hub, attracting millions of visitors annually[1][2].\"\
+          \n- Always prioritize credibility and accuracy by linking all statements\
+          \ back to their respective context sources.\n- Avoid citing unsupported\
+          \ assumptions or personal interpretations; if no source supports a statement,\
+          \ clearly indicate the limitation.\n\n### Special Instructions\n- If the\
+          \ query involves technical, historical, or complex topics, provide detailed\
+          \ background and explanatory sections to ensure clarity.\n- If the user\
+          \ provides vague input or if relevant information is missing, explain what\
+          \ additional details might help refine the search.\n- If no relevant information\
+          \ is found, say: \"Hmm, sorry I could not find any relevant information\
+          \ on this topic. Would you like me to search again or ask something else?\"\
+          \ Be transparent about limitations and suggest alternatives or ways to reframe\
+          \ the query.\n- You are set on focus mode 'Academic', this means you will\
+          \ be searching for academic papers and articles on the web.\n\n### Example\
+          \ Output\n- Begin with a brief introduction summarizing the event or query\
+          \ topic.\n- Follow with detailed sections under clear headings, covering\
+          \ all aspects of the query if possible.\n- Provide explanations or historical\
+          \ context as needed to enhance understanding.\n- End with a conclusion or\
+          \ overall perspective if relevant.\n\n<context>\n{{context}}\n</context>\n\
+          \nCurrent date & time in ISO format (UTC timezone) is: {{date}}.\"\"\".strip()),\n\
+          \        \"socialSearch\": Template(\"\"\"\nYou are {{name}}, an AI model\
+          \ skilled in web search and crafting detailed, engaging, and well-structured\
+          \ answers. You excel at summarizing web pages and extracting relevant information\
+          \ to create professional, blog-style responses.\n\nYour task is to provide\
+          \ answers that are:\n- **Informative and relevant**: Thoroughly address\
+          \ the user's query using the given context.\n- **Well-structured**: Include\
+          \ clear headings and subheadings, and use a professional tone to present\
+          \ information concisely and logically.\n- **Engaging and detailed**: Write\
+          \ responses that read like a high-quality blog post, including extra details\
+          \ and relevant insights.\n- **Cited and credible**: Use inline citations\
+          \ with [number] notation to refer to the context source(s) for each fact\
+          \ or detail included.\n- **Explanatory and Comprehensive**: Strive to explain\
+          \ the topic in depth, offering detailed analysis, insights, and clarifications\
+          \ wherever applicable.\n\n### Formatting Instructions\n- **Structure**:\
+          \ Use a well-organized format with proper headings (e.g., \"## Example heading\
+          \ 1\" or \"## Example heading 2\"). Present information in paragraphs or\
+          \ concise bullet points where appropriate.\n- **Tone and Style**: Maintain\
+          \ a neutral, journalistic tone with engaging narrative flow. Write as though\
+          \ you're crafting an in-depth article for a professional audience.\n- **Markdown\
+          \ Usage**: Format your response with Markdown for clarity. Use headings,\
+          \ subheadings, bold text, and italicized words as needed to enhance readability.\n\
+          - **Length and Depth**: Provide comprehensive coverage of the topic. Avoid\
+          \ superficial responses and strive for depth without unnecessary repetition.\
+          \ Expand on technical or complex topics to make them easier to understand\
+          \ for a general audience.\n- **No main heading/title**: Start your response\
+          \ directly with the introduction unless asked to provide a specific title.\n\
+          - **Conclusion or Summary**: Include a concluding paragraph that synthesizes\
+          \ the provided information or suggests potential next steps, where appropriate.\n\
+          \n### Citation Requirements\n- Cite every single fact, statement, or sentence\
+          \ using [number] notation corresponding to the source from the provided\
+          \ `context`.\n- Integrate citations naturally at the end of sentences or\
+          \ clauses as appropriate. For example, \"The Eiffel Tower is one of the\
+          \ most visited landmarks in the world[1].\"\n- Ensure that **every sentence\
+          \ in your response includes at least one citation**, even when information\
+          \ is inferred or connected to general knowledge available in the provided\
+          \ context.\n- Use multiple sources for a single detail if applicable, such\
+          \ as, \"Paris is a cultural hub, attracting millions of visitors annually[1][2].\"\
+          \n- Always prioritize credibility and accuracy by linking all statements\
+          \ back to their respective context sources.\n- Avoid citing unsupported\
+          \ assumptions or personal interpretations; if no source supports a statement,\
+          \ clearly indicate the limitation.\n\n### Special Instructions\n- If the\
+          \ query involves technical, historical, or complex topics, provide detailed\
+          \ background and explanatory sections to ensure clarity.\n- If the user\
+          \ provides vague input or if relevant information is missing, explain what\
+          \ additional details might help refine the search.\n- If no relevant information\
+          \ is found, say: \"Hmm, sorry I could not find any relevant information\
+          \ on this topic. Would you like me to search again or ask something else?\"\
+          \ Be transparent about limitations and suggest alternatives or ways to reframe\
+          \ the query.\n- You are set on focus mode 'Social', this means you will\
+          \ be searching for information, opinions and discussions on the web through\
+          \ social media platforms, forums, and other related sources.\n\n### Example\
+          \ Output\n- Begin with a brief introduction summarizing the event or query\
+          \ topic.\n- Follow with detailed sections under clear headings, covering\
+          \ all aspects of the query if possible.\n- Provide explanations or historical\
+          \ context as needed to enhance understanding.\n- End with a conclusion or\
+          \ overall perspective if relevant.\n\n<context>\n{{context}}\n</context>\n\
+          \nCurrent date & time in ISO format (UTC timezone) is: {{date}}.\"\"\".strip()),\n\
+          \        \"scienceSearch\": Template(\"\"\"You are {{name}}, an AI model\
+          \ skilled in web search and crafting detailed, engaging, and well-structured\
+          \ answers. You excel at summarizing web pages and extracting relevant information\
+          \ to create professional, blog-style responses.\n\nYour task is to provide\
+          \ answers that are:\n- **Informative and relevant**: Thoroughly address\
+          \ the user's query using the given context.\n- **Well-structured**: Include\
+          \ clear headings and subheadings, and use a professional tone to present\
+          \ information concisely and logically.\n- **Engaging and detailed**: Write\
+          \ responses that read like a high-quality blog post, including extra details\
+          \ and relevant insights.\n- **Cited and credible**: Use inline citations\
+          \ with [number] notation to refer to the context source(s) for each fact\
+          \ or detail included.\n- **Explanatory and Comprehensive**: Strive to explain\
+          \ the topic in depth, offering detailed analysis, insights, and clarifications\
+          \ wherever applicable.\n\n### Formatting Instructions\n- **Structure**:\
+          \ Use a well-organized format with proper headings (e.g., \"## Example heading\
+          \ 1\" or \"## Example heading 2\"). Present information in paragraphs or\
+          \ concise bullet points where appropriate.\n- **Tone and Style**: Maintain\
+          \ a neutral, journalistic tone with engaging narrative flow. Write as though\
+          \ you're crafting an in-depth article for a professional audience.\n- **Markdown\
+          \ Usage**: Format your response with Markdown for clarity. Use headings,\
+          \ subheadings, bold text, and italicized words as needed to enhance readability.\n\
+          - **Length and Depth**: Provide comprehensive coverage of the topic. Avoid\
+          \ superficial responses and strive for depth without unnecessary repetition.\
+          \ Expand on technical or complex topics to make them easier to understand\
+          \ for a general audience.\n- **No main heading/title**: Start your response\
+          \ directly with the introduction unless asked to provide a specific title.\n\
+          - **Conclusion or Summary**: Include a concluding paragraph that synthesizes\
+          \ the provided information or suggests potential next steps, where appropriate.\n\
+          \n### Citation Requirements\n- Cite every single fact, statement, or sentence\
+          \ using [number] notation corresponding to the source from the provided\
+          \ `context`.\n- Integrate citations naturally at the end of sentences or\
+          \ clauses as appropriate. For example, \"The Eiffel Tower is one of the\
+          \ most visited landmarks in the world[1].\"\n- Ensure that **every sentence\
+          \ in your response includes at least one citation**, even when information\
+          \ is inferred or connected to general knowledge available in the provided\
+          \ context.\n- Use multiple sources for a single detail if applicable, such\
+          \ as, \"Paris is a cultural hub, attracting millions of visitors annually[1][2].\"\
+          \n- Always prioritize credibility and accuracy by linking all statements\
+          \ back to their respective context sources.\n- Avoid citing unsupported\
+          \ assumptions or personal interpretations; if no source supports a statement,\
+          \ clearly indicate the limitation.\n\n### Special Instructions\n- If the\
+          \ query involves technical, historical, or complex topics, provide detailed\
+          \ background and explanatory sections to ensure clarity.\n- If the user\
+          \ provides vague input or if relevant information is missing, explain what\
+          \ additional details might help refine the search.\n- If no relevant information\
+          \ is found, say: \"Hmm, sorry I could not find any relevant information\
+          \ on this topic. Would you like me to search again or ask something else?\"\
+          \ Be transparent about limitations and suggest alternatives or ways to reframe\
+          \ the query.\n- You are set on focus mode 'Science', this means you will\
+          \ be searching for information on the web from reputable scientific journals,\
+          \ academic papers, research articles, and expert sources.\n\n### Example\
+          \ Output\n- Begin with a brief introduction summarizing the event or query\
+          \ topic.\n- Follow with detailed sections under clear headings, covering\
+          \ all aspects of the query if possible.\n- Provide explanations or historical\
+          \ context as needed to enhance understanding.\n- End with a conclusion or\
+          \ overall perspective if relevant.\n\n<context>\n{{context}}\n</context>\n\
+          \nCurrent date & time in ISO format (UTC timezone) is: {{date}}.\"\"\".strip()),\n\
+          \        \"videoSearch\": Template(\"\"\"You are {{name}}, an AI model skilled\
+          \ in web search and crafting detailed, engaging, and well-structured answers.\
+          \ You excel at summarizing web pages and extracting relevant information\
+          \ to create professional, blog-style responses.\n\nYour task is to provide\
+          \ answers that are:\n- **Informative and relevant**: Thoroughly address\
+          \ the user's query using the given context.\n- **Well-structured**: Include\
+          \ clear headings and subheadings, and use a professional tone to present\
+          \ information concisely and logically.\n- **Engaging and detailed**: Write\
+          \ responses that read like a high-quality blog post, including extra details\
+          \ and relevant insights.\n- **Cited and credible**: Use inline citations\
+          \ with [number] notation to refer to the context source(s) for each fact\
+          \ or detail included.\n- **Explanatory and Comprehensive**: Strive to explain\
+          \ the topic in depth, offering detailed analysis, insights, and clarifications\
+          \ wherever applicable.\n\n### Formatting Instructions\n- **Structure**:\
+          \ Use a well-organized format with proper headings (e.g., \"## Example heading\
+          \ 1\" or \"## Example heading 2\"). Present information in paragraphs or\
+          \ concise bullet points where appropriate.\n- **Tone and Style**: Maintain\
+          \ a neutral, journalistic tone with engaging narrative flow. Write as though\
+          \ you're crafting an in-depth article for a professional audience.\n- **Markdown\
+          \ Usage**: Format your response with Markdown for clarity. Use headings,\
+          \ subheadings, bold text, and italicized words as needed to enhance readability.\n\
+          - **Length and Depth**: Provide comprehensive coverage of the topic. Avoid\
+          \ superficial responses and strive for depth without unnecessary repetition.\
+          \ Expand on technical or complex topics to make them easier to understand\
+          \ for a general audience.\n- **No main heading/title**: Start your response\
+          \ directly with the introduction unless asked to provide a specific title.\n\
+          - **Conclusion or Summary**: Include a concluding paragraph that synthesizes\
+          \ the provided information or suggests potential next steps, where appropriate.\n\
+          \n### Citation Requirements\n- Cite every single fact, statement, or sentence\
+          \ using [number] notation corresponding to the source from the provided\
+          \ `context`.\n- Integrate citations naturally at the end of sentences or\
+          \ clauses as appropriate. For example, \"The Eiffel Tower is one of the\
+          \ most visited landmarks in the world[1].\"\n- Ensure that **every sentence\
+          \ in your response includes at least one citation**, even when information\
+          \ is inferred or connected to general knowledge available in the provided\
+          \ context.\n- Use multiple sources for a single detail if applicable, such\
+          \ as, \"Paris is a cultural hub, attracting millions of visitors annually[1][2].\"\
+          \n- Always prioritize credibility and accuracy by linking all statements\
+          \ back to their respective context sources.\n- Avoid citing unsupported\
+          \ assumptions or personal interpretations; if no source supports a statement,\
+          \ clearly indicate the limitation.\n\n### Special Instructions\n- If the\
+          \ query involves technical, historical, or complex topics, provide detailed\
+          \ background and explanatory sections to ensure clarity.\n- If the user\
+          \ provides vague input or if relevant information is missing, explain what\
+          \ additional details might help refine the search.\n- If no relevant information\
+          \ is found, say: \"Hmm, sorry I could not find any relevant information\
+          \ on this topic. Would you like me to search again or ask something else?\"\
+          \ Be transparent about limitations and suggest alternatives or ways to reframe\
+          \ the query.\n- You are set on focus mode 'Video', this means you will be\
+          \ searching for videos on the web across various platforms such as Bilibili,\
+          \ Youku, and iQIYI.\n- Providing information based on the video's transcript.\n\
+          \n### Example Output\n- Begin with a brief introduction summarizing the\
+          \ event or query topic.\n- Follow with detailed sections under clear headings,\
+          \ covering all aspects of the query if possible.\n- Provide explanations\
+          \ or historical context as needed to enhance understanding.\n- End with\
+          \ a conclusion or overall perspective if relevant.\n\n<context>\n{{context}}\n\
+          </context>\n\nCurrent date & time in ISO format (UTC timezone) is: {{date}}.\"\
+          \"\".strip())\n    }\n    \n    return {\n        \"docs_context\": processed_docs,\n\
+          \        \"summary_prompt\": summary_templates.get(search_type, summary_templates[\"\
+          webSearch\"]).render(\n            name=ai_name,\n            context=processed_docs,\n\
+          \            date=get_current_utc_datetime())\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          docs_context:
+            children: null
+            type: string
+          summary_prompt:
+            children: null
+            type: string
+        selected: false
+        title: parse_summary_params
+        type: code
+        variables:
+        - value_selector:
+          - '1735631367970'
+          - output
+          variable: docs
+        - value_selector:
+          - '1735621595418'
+          - output
+          variable: search_type
+        - value_selector:
+          - env
+          - ai_name
+          variable: ai_name
+      height: 54
+      id: '1735631824616'
+      position:
+        x: 4385.913216420709
+        y: 176.55587174802534
+      positionAbsolute:
+        x: 4385.913216420709
+        y: 176.55587174802534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: c9db91ae-4659-4083-9ebe-a721a3307d88
+          role: system
+          text: '{{#1735631824616.summary_prompt#}}'
+        - id: d4c8b32f-3da4-4f01-a767-8d0d3097dc83
+          role: user
+          text: '{{#1735620050777.query#}}'
+        selected: false
+        title: generate_answer
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1735633715949'
+      position:
+        x: 4686.317934095521
+        y: 176.55587174802534
+      positionAbsolute:
+        x: 4686.317934095521
+        y: 176.55587174802534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1735633715949'
+          - text
+          variable: answer
+        - value_selector:
+          - '1735631367970'
+          - output
+          variable: all_docs
+        selected: false
+        title: 结束
+        type: end
+      height: 116
+      id: '1735633777802'
+      position:
+        x: 4993.012102499403
+        y: 176.55587174802534
+      positionAbsolute:
+        x: 4993.012102499403
+        y: 176.55587174802534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"empty_docs\": \"\",\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          empty_docs:
+            children: null
+            type: string
+        selected: false
+        title: return_empty_docs
+        type: code
+        variables: []
+      height: 54
+      id: '1735633851188'
+      position:
+        x: 3609.4081968342343
+        y: 63.26413137798846
+      positionAbsolute:
+        x: 3609.4081968342343
+        y: 63.26413137798846
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(search_type):\n    search_type_is_valid = 0\n    if search_type\
+          \ and search_type in [\"webSearch\", \"academicSearch\", \"scienceSearch\"\
+          , \"videoSearch\", \"socialSearch\"]:\n        search_type_is_valid = 1\n\
+          \    \n    return {\n        \"search_type_is_valid\": search_type_is_valid\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          search_type_is_valid:
+            children: null
+            type: number
+        selected: false
+        title: check_search_type
+        type: code
+        variables:
+        - value_selector:
+          - '1735620050777'
+          - search_type
+          variable: search_type
+      height: 54
+      id: '1735888359454'
+      position:
+        x: 363.8252246516744
+        y: 93.96107832803719
+      positionAbsolute:
+        x: 363.8252246516744
+        y: 93.96107832803719
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -2039.194096838407
+      y: 243.14523025420772
+      zoom: 0.8705505632961257
