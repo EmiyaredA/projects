@@ -7,8 +7,9 @@ def formatChatHistoryAsString(all_history):
         "assistant": "ai"
     }
     history_formatted = "\n".join([
-        f"{dialog['role']}: {dialog['content']}" for dialog in all_history
+        f"{type_map[dialog['role']]}: {dialog['content']}" for dialog in all_history
     ])
+    return history_formatted
 
 
 def main(user_input: str, all_history: str, search_type: str):
@@ -72,7 +73,7 @@ Rephrased question: What is Docker
 Rephrased: Stable diffusion working
 
 Conversation:
-{{chat_history}}
+{{all_history}}
 
 Follow up question: {{query}}
 Rephrased question:""".strip()),
@@ -89,7 +90,7 @@ Rephrased: Linear algebra
 Rephrased: Third law of thermodynamics
 
 Conversation:
-{{chat_history}}
+{{all_history}}
 
 Follow up question: {{query}}
 Rephrased question:""".strip()),
@@ -161,6 +162,17 @@ Rephrased question:""".strip())
     return {
         "search_query": search_query,
         "search_config": json.dumps(search_handlers[search_type], ensure_ascii=False),
-        "search_retriever_prompt": search_retriever_prompt[search_type].render(all_history=all_history,query=search_query),
-        "history_with_searchQuery": json.dumps(history_with_searchQuery, ensure_ascii=False)
+        "search_retriever_prompt": search_retriever_prompt[search_type].render(all_history=history_with_searchQuery,query=search_query),
+        "history_with_searchQuery": history_with_searchQuery
     }
+
+
+input_args = {
+  "all_history": "[]",
+  "user_input": "bird-bench目前排行榜第一的项目",
+  "search_type": "webSearch"
+}
+
+
+if __name__ == "__main__":
+    print(main(**input_args))
