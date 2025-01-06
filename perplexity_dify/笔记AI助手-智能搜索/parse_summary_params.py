@@ -81,7 +81,7 @@ Current date & time in ISO format (UTC timezone) is: {{date}}.
 
     return {
         "docs_context": processed_docs,
-        "summary_prompt": summary_templates.get(search_type, ""),
+        "summary_prompt_special": summary_templates.get(search_type, ""),
         "search_type": parsed_search_type
     }
 
