@@ -2,6 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presentation_generate/Powerpointer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presentation_generate/ai-presentation" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/presentation_generate/ai-to-pptx" vcs="Git" />
   </component>
 </project>

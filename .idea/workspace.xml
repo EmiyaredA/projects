@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfecae99-e9f6-4978-afcc-0a9054fc6d9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/presentation_generate/pptxgenjs/trial.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projects.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/perplexity_dify/笔记AI助手-智能搜索/extract_search_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/perplexity_dify/笔记AI助手-智能搜索/extract_search_result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp_files/print_str.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp_files/print_str.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/Powerpointer/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/ai-presentation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/ai-presentation/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/ai-presentation/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/ai-presentation/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/ai-presentation/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/ai-presentation/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/ai-to-pptx/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/ai-to-pptx/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/presentation_generate/ai-to-pptx" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -28,22 +32,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/home/tonghao/projects/presentation_generate/pptxgenjs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.sensetime.sensecode.jetbrains.raccoon.ui.RaccoonConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/home/tonghao/projects/presentation_generate/PowerPoint-Generator-Python-Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.sensetime.sensecode.jetbrains.raccoon.ui.RaccoonConfigurable",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\home\tonghao\projects\presentation_generate\PowerPoint-Generator-Python-Project" />
+      <recent name="C:\home\tonghao\projects\presentation_generate\ai-presentation" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -63,6 +73,10 @@
       <workItem from="1736316202887" duration="17000" />
       <workItem from="1736316224833" duration="768000" />
       <workItem from="1736317013822" duration="8000" />
+      <workItem from="1736321481756" duration="2151000" />
+      <workItem from="1736325060009" duration="111000" />
+      <workItem from="1736325188894" duration="1052000" />
+      <workItem from="1736331286123" duration="1396000" />
     </task>
     <servers />
   </component>
@@ -74,5 +88,8 @@
         <option value="$PROJECT_DIR$/presentation_generate/ai-to-pptx/src/iconify-bundle/bundle-icons-react.d.ts" />
       </list>
     </option>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
 </project>
