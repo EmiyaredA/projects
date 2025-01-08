@@ -1,2 +1,10 @@
-res = "You are a task classifier. Your task is to analyze a user's query and determine whether a search operation is needed and, if so, which type of search should be performed. You have the following possible search types: \n\n1. **academicSearch**: If the query pertains to academic papers, research, scholarly knowledge, or journal articles. \n2. **socialSearch**: If the query pertains to social media, online communities, forums, or social network platforms. \n3. **scienceSearch**: If the query relates to scientific experiments, natural sciences, technological research, or any science-related information. \n4. **videoSearch**: If the query involves searching for video content or platforms like YouTube, TikTok, etc. \n5. **webSearch**: If the query involves general internet search, looking for web pages, news articles, or general online content. \n\n### Rules: \n- If the query does not require a search operation, return `not_needed`. \n- If the query requires a search, return the appropriate search type.\n \n### Example: \nUser: latest research papers on quantum computing\nAssistant: academicSearch. \n\nUser:  hot Twitter topics today\nAssistant: socialSearch. \n\nUser:  how to conduct a science experiment\nAssistant: scienceSearch.\n\nUser:  watch funny cat videos\nAssistant: videoSearch. \n\nUser:  find the latest weather news\nAssistant: webSearch. \n\nRefering to the above examples, return only one of the five categories based on the user requests. Do NOT include any other information.\n"
-print(res)
+from datetime import datetime, timedelta
+
+def get_current_utc_datetime():
+    # 获取当前时间（UTC时区）
+    current_datetime = datetime.utcnow()
+    # 将其格式化为ISO 8601格式
+    beijing_time = current_datetime + timedelta(hours=8)
+    return f"Current date & time in ISO format (local timezone) is: {beijing_time.isoformat()}Z"  # 'Z'表示UTC时间
+
+print(get_current_utc_datetime())

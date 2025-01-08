@@ -1,6 +1,13 @@
 import json
 from jinja2 import Template
+from datetime import datetime, timedelta
 
+def get_current_utc_datetime():
+    # 获取当前时间（UTC时区）
+    current_datetime = datetime.utcnow()
+    # 将其格式化为ISO 8601格式
+    beijing_time = current_datetime + timedelta(hours=8)
+    return f"Current date & time in ISO format (local timezone) is: {beijing_time.isoformat()}Z"
 def main(search_res, user_input):
     search_res_json = search_res
     search_system_prompt_template = Template("""
@@ -118,6 +125,8 @@ When output the responses:
 - Provide explanations or historical context as needed to enhance understanding.
 - End with a conclusion or overall perspective if relevant.
 
+{{curr_date}}
+
 START OF EXAMPLE SESSIONS. DO NOT USE ANY INFORMATION OR FACTS FROM EXAMPLE SESSIONS BELOW IN YOUR RESPONSE.
 
 Human: <chat><text>what’s happening in large AI models?</text></chat>
@@ -151,7 +160,10 @@ In the following example, see how some search results may look related, but actu
 END OF EXAMPLE SESSIONS. DO NOT USE ANY INFORMATION OR FACTS FROM EXAMPLE SESSIONS IN YOUR RESPONSE.
 """.strip())
     special_prompt = search_res_json[0]["summary_prompt_special"]
-    search_system_prompt = search_system_prompt_template.render(search_type_prompt=special_prompt)
+    search_system_prompt = search_system_prompt_template.render(
+        search_type_prompt=special_prompt,
+        curr_date=get_current_utc_datetime()
+    )
 
     search_type = search_res[0].get("search_type", "")
 
