@@ -8,6 +8,7 @@ from prompt import generate_ppt_page_prompt, generate_outline_system, generate_o
 import re
 from collections import defaultdict
 from bs4 import BeautifulSoup
+from pprint import pprint
 
 def __0_工具函数__():
     pass
@@ -157,7 +158,7 @@ def generate_sub_ppt_pages(prs, nodes, sub_tree, curr_node, path):
     if not path:
         raise "生成ppt子页的路径不能为空"
         # 将当前节点加入路径
-    path.append(curr_node)
+    path.append(nodes[curr_node])
 
     if not sub_tree:
         # 如果当前节点没有子节点，说明是叶子节点，开始生成对应的ppt子页
@@ -173,7 +174,7 @@ def generate_sub_ppt_pages(prs, nodes, sub_tree, curr_node, path):
             f"{parsed_answer_item['title']}：\n{parsed_answer_item['content']}"
             for parsed_answer_item in parsed_answer_list
         ])
-        print(f"路径：{str(path)}\n内容：{content}")
+        print(f"路径：{str(path)}\n内容：{content}\n\n")
         set_content(slide, content, "content")
         return
 
@@ -188,7 +189,8 @@ def generate_ppt(nodes, graph_structure, template_path, config):
     root_node = find_root(graph_structure)
     if root_node:
         tree_structure = {root_node: build_tree(graph_structure, root_node)}
-        # print(tree_structure)
+        pprint(tree_structure)
+        print()
     else:
         raise "生成的大纲树没有根节点"
 
@@ -226,6 +228,8 @@ def generate_outline(config: OutlineConfig = OutlineConfig()):
         slide_count = config.slide_count
     )
     answer = chat_model(system_prompt=generate_outline_system_str, user_prompt=generate_outline_user_str)
+    print(answer)
+    print()
     nodes, graph_structure = parse_mermaid_from_md(answer)
     if nodes is None or graph_structure is None:
         raise ValueError("大纲生成失败")
@@ -233,15 +237,15 @@ def generate_outline(config: OutlineConfig = OutlineConfig()):
 
 if __name__ == '__main__':
     current_dir = os.path.dirname(__file__)  # 获取当前脚本所在的目录
-    # ppt_template_path = os.path.join(current_dir, 'Template', 'Design-1.pptx')
-    ppt_template_path = os.path.join(current_dir, 'Template', 'Design-qwen.pptx')
+    ppt_template_path = os.path.join(current_dir, 'Template', 'Design-1.pptx')
+    # ppt_template_path = os.path.join(current_dir, 'Template', 'Design-qwen.pptx')
 
     outlineConfig = OutlineConfig(
         topic="python教程",
         speaker="jojo",
         content="详细地介绍以下python的使用",
         language="中文",
-        slide_count=20
+        slide_count=30
     )
     nodes, graph_structure = generate_outline(outlineConfig)
     generate_ppt(nodes, graph_structure, ppt_template_path, outlineConfig)
