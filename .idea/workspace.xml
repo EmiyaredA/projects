@@ -8,26 +8,49 @@
       <change afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/presentation_generate/ppt_th/temp_trial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projects.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/flaskapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/flaskapp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/utils/gpt_generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/utils/gpt_generate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/utils/text_pp.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/utils/text_pp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/Powerpointer" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/Powerpointer/Designs/Design-1.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/Powerpointer/Designs/Design-2.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/Designs/Design-2.pptx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation_generate/Powerpointer/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation_generate/ai-presentation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/ai-presentation/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation_generate/ai-presentation/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/ai-presentation/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation_generate/ai-presentation/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/ai-presentation/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation_generate/ai-to-pptx/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/ai-to-pptx/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/Text_to_PPT" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/Text_to_PPT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/Text_to_PPT/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/Text_to_PPT/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/aipoweredpowerpointpresentation" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/aipoweredpowerpointpresentation" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/aipoweredpowerpointpresentation/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/aipoweredpowerpointpresentation/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/aipoweredpowerpointpresentation/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/aipoweredpowerpointpresentation/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/aipoweredpowerpointpresentation/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/aipoweredpowerpointpresentation/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/powerpoint-generative-ai" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/powerpoint-generative-ai" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/powerpoint-generative-ai/powerpoint_generative_ai/ppt_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/powerpoint-generative-ai/powerpoint_generative_ai/ppt_analyzer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/powerpoint-generative-ai/powerpoint_generative_ai/ppt_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/powerpoint-generative-ai/powerpoint_generative_ai/ppt_generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/presentation_generate/ppt_th" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2rKh969mHiy9NqCYdk218PEMmDt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,14 +59,14 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/home/tonghao/projects/presentation_generate/PowerPoint-Generator-Python-Project",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/home/tonghao/projects/presentation_generate/ppt_th",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.sensetime.sensecode.jetbrains.raccoon.ui.RaccoonConfigurable",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -77,6 +100,8 @@
       <workItem from="1736325060009" duration="111000" />
       <workItem from="1736325188894" duration="1052000" />
       <workItem from="1736331286123" duration="1396000" />
+      <workItem from="1736942310203" duration="961000" />
+      <workItem from="1736943291562" duration="1860000" />
     </task>
     <servers />
   </component>

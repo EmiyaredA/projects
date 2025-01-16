@@ -1,6 +1,10 @@
 from pptx import Presentation
 import os
 from pptx.util import Inches
+import copy
+from pptx.enum.shapes import MSO_SHAPE_TYPE
+from io import BytesIO
+
 def set_content(slide, text, type):
     match type:
         case "title":
@@ -225,6 +229,98 @@ def apply_character_formatting(shape):
     run.hyperlink.address = 'https://github.com/scanny/python-pptx'
 
 
+def copy_slide(prs, slide):
+    # 创建新的幻灯片
+    slide_layout = slide.slide_layout
+    new_slide = prs.slides.add_slide(slide_layout)
+
+    for shape in slide.shapes:
+        if shape.is_placeholder:
+            continue
+
+        # 复制文本框
+        if shape.shape_type == 1:  # 文本框
+            left = shape.left
+            top = shape.top
+            width = shape.width
+            height = shape.height
+            textbox = new_slide.shapes.add_textbox(left, top, width, height)
+            textbox.text = shape.text
+
+            # 复制文本格式
+            for para in shape.text_frame.paragraphs:
+                for run in para.runs:
+                    new_run = textbox.text_frame.paragraphs[0].add_run()
+                    new_run.text = run.text
+                    new_run.font.size = run.font.size
+                    new_run.font.bold = run.font.bold
+                    new_run.font.italic = run.font.italic
+                    new_run.font.underline = run.font.underline
+                    new_run.font.color.rgb = run.font.color.rgb
+
+        # 复制图片
+        elif shape.shape_type == 13:  # 图片
+            left = shape.left
+            top = shape.top
+            image_blob = shape.image.blob  # 获取图片的二进制数据
+            image_stream = BytesIO(image_blob)  # 将二进制数据转换为流
+            new_slide.shapes.add_picture(image_stream, left, top)
+
+        # 复制表格
+        elif shape.shape_type == 19:  # 表格
+            left = shape.left
+            top = shape.top
+            width = shape.width
+            height = shape.height
+            table = new_slide.shapes.add_table(shape.table.rows, shape.table.columns, left, top, width, height).table
+
+            for row_idx, row in enumerate(shape.table.rows):
+                for col_idx, cell in enumerate(row.cells):
+                    new_cell = table.cell(row_idx, col_idx)
+                    new_cell.text = cell.text
+                    # 复制单元格格式（字体、对齐等）
+                    new_cell.text_frame.paragraphs[0].font.size = cell.text_frame.paragraphs[0].font.size
+                    new_cell.text_frame.paragraphs[0].font.bold = cell.text_frame.paragraphs[0].font.bold
+                    new_cell.text_frame.paragraphs[0].font.italic = cell.text_frame.paragraphs[0].font.italic
+
+        # 复制形状
+        elif shape.shape_type == 6:  # 形状（如矩形）
+            left = shape.left
+            top = shape.top
+            width = shape.width
+            height = shape.height
+            new_shape = new_slide.shapes.add_shape(shape.auto_shape_type, left, top, width, height)
+            # 复制形状的填充色、边框等
+            new_shape.fill.solid()
+            new_shape.fill.fore_color.rgb = shape.fill.fore_color.rgb
+            new_shape.line.color.rgb = shape.line.color.rgb
+
+        # 复制图表
+        elif shape.shape_type == 4:  # 图表
+            # 目前python-pptx不直接支持复制图表，我们可以提取图表数据并重新创建图表
+            # 这部分需要根据具体需求来实现
+            pass
+
+    return new_slide
+
+
+def delete_slide(template_path, slide_index, save_path):
+    presentation = Presentation(template_path)
+    xml_slides = presentation.slides._sldIdLst
+    slides = list(xml_slides)
+    xml_slides.remove(slides[slide_index])
+    # 保存
+    presentation.save(save_path)
+
+def copy_slide_trial(template_path, save_path):
+    prs = Presentation(template_path)
+    # 创建新的PPT文件
+    new_ppt = Presentation()
+    # 复制每一页幻灯片
+    for slide in prs.slides:
+        copy_slide(new_ppt, slide)
+    new_ppt.save(save_path)
+
 #todo 后续还有关于tables和chart的使用样例要构建，等使用到了再说
 
 if __name__ == '__main__':
@@ -239,4 +335,6 @@ if __name__ == '__main__':
     # identify_and_characterize_placeholder()
     # check_placeholder_format()
 
-    insert_table_into_placeholder()
+    # insert_table_into_placeholder()
+    copy_slide_trial(template_path=template_route, save_path=save_route)
+    # delete_slide(template_path=template_route, slide_index=0, save_path=save_route)

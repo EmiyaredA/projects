@@ -2,43 +2,25 @@ from pptx import Presentation
 import os
 import re
 
-def copy_slide(prs, slide_index):
-    # 获取源幻灯片
-    slide = prs.slides[slide_index]
+def copy_slide(prs, slide):
+    slide_layout = slide.slide_layout  # 使用原幻灯片的布局
+    new_slide = prs.slides.add_slide(slide_layout)  # 创建新幻灯片
 
-    # 创建一个新的幻灯片
-    slide_layout = slide.slide_layout  # 获取源幻灯片的布局
-    new_slide = prs.slides.add_slide(slide_layout)
-
-    # 复制源幻灯片的所有形状到新幻灯片
+    # 复制原幻灯片上的所有形状
     for shape in slide.shapes:
         if shape.is_placeholder:
+            # 对占位符类型的形状进行复制
             new_shape = new_slide.shapes.add_placeholder(shape.placeholder_format.idx, shape.left, shape.top,
                                                          shape.width, shape.height)
-            if shape.has_text_frame:
-                new_shape.text_frame.clear()  # 清除文本框中的内容
-                for paragraph in shape.text_frame.paragraphs:
-                    new_paragraph = new_shape.text_frame.add_paragraph()
-                    for run in paragraph.runs:
-                        new_run = new_paragraph.add_run()
-                        new_run.text = run.text
-                        # 可以在此处添加更多样式的复制操作
+            new_shape.text = shape.text  # 复制文本内容（如果有）
+        elif shape.shape_type == 13:  # 图片（图像类型为13）
+            # 复制图片
+            new_slide.shapes.add_picture(shape.image, shape.left, shape.top, shape.width, shape.height)
         else:
-            if shape.has_text_frame:
-                new_shape = new_slide.shapes.add_textbox(shape.left, shape.top, shape.width, shape.height)
-                new_shape.text_frame.clear()
-                for paragraph in shape.text_frame.paragraphs:
-                    new_paragraph = new_shape.text_frame.add_paragraph()
-                    for run in paragraph.runs:
-                        new_run = new_paragraph.add_run()
-                        new_run.text = run.text
-                        # 复制其他样式（例如字体、颜色等）
-            else:
-                # 复制其他类型的形状（如图片、图表等）
-                if shape.shape_type == 13:  # 图片
-                    new_shape = new_slide.shapes.add_picture(shape.image.filename, shape.left, shape.top, shape.width,
-                                                             shape.height)
-                pass
+            # 其他形状（如矩形、圆形等）
+            new_shape = new_slide.shapes.add_shape(shape.auto_shape_type, shape.left, shape.top, shape.width,
+                                                   shape.height)
+            new_shape.text = shape.text  # 复制文本内容（如果有）
 
     return new_slide
 

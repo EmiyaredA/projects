@@ -4,7 +4,12 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/presentation_generate/Powerpointer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presentation_generate/SlideAI" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presentation_generate/Text_to_PPT" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/presentation_generate/ai-presentation" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/presentation_generate/ai-to-pptx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presentation_generate/aipoweredpowerpointpresentation" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presentation_generate/powerpoint-generative-ai" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presentation_generate/ppt_th" vcs="Git" />
   </component>
 </project>
