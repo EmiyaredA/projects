@@ -329,12 +329,12 @@ if __name__ == '__main__':
     template_route = os.path.join(dir_path, "Template", "最近PPT最新进展工作汇报.pptx")
     save_route = os.path.join(dir_path, "GeneratedPresentations", "test.pptx")
 
-    # generate_ppt(template_route)
+    generate_ppt(template_route)
     # add_one_slide(save_route)
     # search_placeholder()
     # identify_and_characterize_placeholder()
     # check_placeholder_format()
 
     # insert_table_into_placeholder()
-    copy_slide_trial(template_path=template_route, save_path=save_route)
+    # copy_slide_trial(template_path=template_route, save_path=save_route)
     # delete_slide(template_path=template_route, slide_index=0, save_path=save_route)

@@ -221,11 +221,11 @@ def generate_ppt(nodes, graph_structure, template_path, config):
 def generate_outline(config: OutlineConfig = OutlineConfig()):
     generate_outline_system_str = generate_outline_system.render()
     generate_outline_user_str = generate_outline_user.render(
-        topic = config.topic,
+        topic=config.topic,
         # speaker = config.speaker,
-        content = config.content,
-        language = config.language,
-        slide_count = config.slide_count
+        content=config.content,
+        language=config.language,
+        slide_count=config.slide_count
     )
     answer = chat_model(system_prompt=generate_outline_system_str, user_prompt=generate_outline_user_str)
     print(answer)
