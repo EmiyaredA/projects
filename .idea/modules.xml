@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/presentation_generate/ppt_th/.idea/ppt_th.iml" filepath="$PROJECT_DIR$/presentation_generate/ppt_th/.idea/ppt_th.iml" />
       <module fileurl="file://$PROJECT_DIR$/presentation_generate/pptxgenjs/.idea/pptxgenjs.iml" filepath="$PROJECT_DIR$/presentation_generate/pptxgenjs/.idea/pptxgenjs.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/projects.iml" filepath="$PROJECT_DIR$/.idea/projects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../senseProjects/.idea/senseProjects.iml" filepath="$PROJECT_DIR$/../senseProjects/.idea/senseProjects.iml" />
     </modules>
   </component>
 </project>

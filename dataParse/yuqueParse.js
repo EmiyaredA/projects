@@ -241,7 +241,7 @@ async function itemToDict(Item, istitle = false) {
         return istitle ? "" : [];
     }
 
-    let {content: cellContainer } = await parseXML(Item, isLevelFocused=false);
+    let {content: cellContainer} = await parseXML(Item, isLevelFocused = false);
     let delta = []
     let deltaContent = ""
     cellContainer.forEach(item => {
@@ -270,6 +270,7 @@ async function itemToDict(Item, istitle = false) {
 
     return istitle ? deltaContent : delta;
 }
+
 // 这里中间处理的时候会生成一个伪database的block_json，所以这里代码会比较耦合。
 async function updateDatabaseBlockByTable(tableDict) {
     let children = [];
@@ -341,37 +342,37 @@ async function updateDatabaseBlockByTable(tableDict) {
         let rowId;
         let datarows = await Promise.all(
             tableRow["$$"].map(async (cell, cellIndex) => {
-            if (!cellIndex) {
-                rowId = generateBlockIdFunc();
-                let props = {
-                    text: {
-                        "$blocksuite:internal:text$": true,
-                        delta: await itemToDict(cell, false)
+                if (!cellIndex) {
+                    rowId = generateBlockIdFunc();
+                    let props = {
+                        text: {
+                            "$blocksuite:internal:text$": true,
+                            delta: await itemToDict(cell, false)
+                        }
+                    }
+                    children.push({
+                        type: "block",
+                        id: rowId,
+                        flavour: FlavourTypes.paragraph,
+                        version: 1,
+                        props: props,
+                        children: []
+                    });
+                    tableProps.cells[rowId] = Object.create(null);
+                    return {};
+                } else {
+                    let props = {
+                        text: {
+                            "$blocksuite:internal:text$": true,
+                            delta: await itemToDict(cell, false)
+                        }
+                    }
+                    return {
+                        columnId: columnsId[cellIndex],
+                        value: props.text
                     }
                 }
-                children.push({
-                    type: "block",
-                    id: rowId,
-                    flavour: FlavourTypes.paragraph,
-                    version: 1,
-                    props: props,
-                    children: []
-                });
-                tableProps.cells[rowId] = Object.create(null);
-                return {};
-            } else {
-                let props = {
-                    text: {
-                        "$blocksuite:internal:text$": true,
-                        delta: await itemToDict(cell, false)
-                    }
-                }
-                return {
-                    columnId: columnsId[cellIndex],
-                    value: props.text
-                }
-            }
-        })
+            })
         )
         for (let i = 0; i < columnsId.length; i++) {
             const columnId = columnsId[i];
@@ -427,6 +428,7 @@ function updateDatabaseBlockByDatatable(tableDict) {
 
     // 分割列名称行和数据类型行
     const headers = tableSheet.columns;
+    const views = tableSheet.views;
     // column的键值对，key为columnId，value为column对象
     let columnsDict = {};
     // column的id列表
@@ -459,11 +461,29 @@ function updateDatabaseBlockByDatatable(tableDict) {
         type: "title"
     };
     props.views[0].header.titleColumn = titleColumnId;
+    props.views[0].name = views[Object.keys(views)[0]].name;
+    // views.forEach(view => {
+    //     let viewDict = {
+    //         mode: "table",
+    //         columns: [],
+    //         filter: {
+    //             type: "group",
+    //             op: "and",
+    //             conditions: []
+    //         },
+    //         header: {
+    //             titleColumn: titleColumnId,
+    //             iconColumn: "type"
+    //         },
+    //         id: generateBlockIdFunc(),
+    //         name: view.name
+    //     }
+    // })
     // columnsDict[titleColumnId] = titleColumn;
     // columnsId.push(titleColumnId);
     props.columns.push(titleColumn);
 
-    headers.forEach((header) => {
+    headers.forEach(header => {
         let column = {
             name: header.name,
             type: header.type in columnTypeDict ? columnTypeDict[header.type] : "rich-text"
@@ -549,6 +569,7 @@ function updateDatabaseBlockByDatatable(tableDict) {
                 case "email":
                 case "phone":
                 case "text":
+                case "input":
                     if (!(colKey in rowData)) break;
                     datarows.push({
                         columnId: colKey,
@@ -790,7 +811,6 @@ function generateDelta(blockList, currAttributes) {
 
 // 工具函数1：生成block的字典
 async function generateBlockJson(blockItem, currStatus) {
-
     // 好像只有blockquote里面开始才会有一个p，其他好像都是span
     let flavour;
     let props = {};
@@ -834,19 +854,18 @@ async function generateBlockJson(blockItem, currStatus) {
             }
         };
         // console.log(props);
-    }
-    else if (blockItem["#name"] === 'BLOCKQUOTE') {
+    } else if (blockItem["#name"] === 'BLOCKQUOTE') {
         flavour = FlavourTypes.paragraph;
+        const blockquoteDeltaArray = await itemToDict(blockItem);
         props = {
             ...props,
             type: "quote",
             text: {
                 "$blocksuite:internal:text$": true,
-                delta: generateDelta(blockItem["P"][0]["$$"])
+                delta: blockquoteDeltaArray
             }
-        };
-    }
-    else if (blockItem["#name"] === 'LI') {
+        }
+    } else if (blockItem["#name"] === 'LI') {
         // 在这里进行是否属于todo类型的判断
         let checked = false;
         let order = null;
@@ -876,8 +895,7 @@ async function generateBlockJson(blockItem, currStatus) {
             }
         }
         // if (curr_status.order) props = {...props, order: curr_status.order}
-    }
-    else if (blockItem["#name"] === "CARD") {
+    } else if (blockItem["#name"] === "CARD") {
         if (blockItem['$'].NAME === "codeblock") {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
@@ -895,8 +913,7 @@ async function generateBlockJson(blockItem, currStatus) {
                     delta: [{"insert": parsedData.code}]
                 }
             }
-        }
-        else if (blockItem['$'].NAME === "math") {
+        } else if (blockItem['$'].NAME === "math") {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -910,12 +927,10 @@ async function generateBlockJson(blockItem, currStatus) {
                 rotate: 0,
                 latex: parsedData.code
             };
-        }
-        else if (blockItem['$'].NAME === 'hr') {
+        } else if (blockItem['$'].NAME === 'hr') {
             flavour = FlavourTypes.divider;
             props = {};
-        }
-        else if (blockItem['$'].NAME === 'dataTable') {
+        } else if (blockItem['$'].NAME === 'dataTable') {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -924,8 +939,7 @@ async function generateBlockJson(blockItem, currStatus) {
                 block: updateDatabaseBlockByDatatable(parsedData),
                 blob: blob
             }
-        }
-        else if (blockItem['$'].NAME === 'image' && currStatus.isLevelFocused) {
+        } else if (blockItem['$'].NAME === 'image' && currStatus.isLevelFocused) {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -944,11 +958,12 @@ async function generateBlockJson(blockItem, currStatus) {
             blob[sourceId] = {content: base64Result, type: ""}
             props = {
                 ...defaultImageProps,
+                width: parsedData.width,
+                height: parsedData.height,
                 sourceId: sourceId,
                 size: blobObj.size
             }
-        }
-        else if (blockItem['$'].NAME === 'board' && currStatus.isLevelFocused) {
+        } else if (blockItem['$'].NAME === 'board' && currStatus.isLevelFocused) {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -970,8 +985,7 @@ async function generateBlockJson(blockItem, currStatus) {
                 sourceId: sourceId,
                 size: blobObj.size
             }
-        }
-        else if (blockItem['$'].NAME === 'file' && currStatus.isLevelFocused) {
+        } else if (blockItem['$'].NAME === 'file' && currStatus.isLevelFocused) {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -994,8 +1008,7 @@ async function generateBlockJson(blockItem, currStatus) {
                 type: response.headers.get('content-type'),
                 name: parsedData.name
             }
-        }
-        else if (blockItem['$'].NAME === 'imageGallery') {
+        } else if (blockItem['$'].NAME === 'imageGallery') {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -1019,8 +1032,7 @@ async function generateBlockJson(blockItem, currStatus) {
                     delta: delta
                 }
             }
-        }
-        else if (blockItem['$'].NAME === 'label') {
+        } else if (blockItem['$'].NAME === 'label') {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -1034,8 +1046,7 @@ async function generateBlockJson(blockItem, currStatus) {
                     delta: [{insert: parsedData.label, attributes: {background: getTagColor()}}]
                 }
             }
-        }
-        else if (blockItem['$'].NAME === 'diagram') {
+        } else if (blockItem['$'].NAME === 'diagram') {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -1056,8 +1067,7 @@ async function generateBlockJson(blockItem, currStatus) {
                 sourceId: sourceId,
                 size: blobObj.size
             }
-        }
-        else if (blockItem['$'].NAME === 'yuqueinline') {
+        } else if (blockItem['$'].NAME === 'yuqueinline') {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -1071,8 +1081,7 @@ async function generateBlockJson(blockItem, currStatus) {
                     delta: [{insert: parsedData.detail.title, attributes: {link: parsedData.detail.url}}]
                 }
             }
-        }
-        else if (blockItem['$'].NAME === 'calendar') {
+        } else if (blockItem['$'].NAME === 'calendar') {
             // 解码 URL 编码部分
             const decodedValue = decodeURIComponent(blockItem['$'].VALUE.split('data:')[1]);
             // 解析为 JSON 对象
@@ -1086,8 +1095,7 @@ async function generateBlockJson(blockItem, currStatus) {
                     delta: [{insert: parsedData.currentDate.toString()}]
                 }
             }
-        }
-        else {
+        } else {
             flavour = FlavourTypes.paragraph;
             props = {
                 ...props,
@@ -1098,14 +1106,12 @@ async function generateBlockJson(blockItem, currStatus) {
                 }
             }
         }
-    }
-    else if (blockItem["#name"] === "TABLE") {
+    } else if (blockItem["#name"] === "TABLE") {
         return {
             block: await updateDatabaseBlockByTable(blockItem),
             blob: blob
         }
-    }
-    else if (blockItem["#name"] === "SUMMARY") {
+    } else if (blockItem["#name"] === "SUMMARY") {
         flavour = FlavourTypes.paragraph;
         props = {
             ...props,
@@ -1115,8 +1121,7 @@ async function generateBlockJson(blockItem, currStatus) {
                 delta: generateDelta(blockItem["$$"])
             }
         };
-    }
-    else {
+    } else {
         return {
             block: null,
             blob: blob
@@ -1164,7 +1169,7 @@ async function parseXML(docDict, isLevelFocused = true) {
     let currLevel = 0;
 
     for (const blockItem of docContent) {
-        block=null;
+        block = null;
         blob = {};
         blockTinyList = [];
         blobsTiny = {};
@@ -1179,44 +1184,43 @@ async function parseXML(docDict, isLevelFocused = true) {
             case 'H6':
             case 'BLOCKQUOTE':
                 ({block, blob} = await generateBlockJson(blockItem));
-                if(block) blockTinyList = [block];
+                if (block) blockTinyList = [block];
                 blobsTiny = blob;
                 break;
             case 'P':
-                if ('CARD' in blockItem){
-                    for(const cardBlock of blockItem["$$"]){
-                        if(cardBlock['#name'] !== 'CARD') continue;
-                        ({block, blob} = await generateBlockJson(cardBlock, {isLevelFocused:isLevelFocused}));
-                        if(block) blockTinyList.push(block);
+                if ('CARD' in blockItem) {
+                    for (const cardBlock of blockItem["$$"]) {
+                        if (cardBlock['#name'] !== 'CARD') continue;
+                        ({block, blob} = await generateBlockJson(cardBlock, {isLevelFocused: isLevelFocused}));
+                        if (block) blockTinyList.push(block);
                         blobsTiny = {...blobsTiny, ...blob};
                     }
-                }
-                else {
+                } else {
                     ({block, blob} = await generateBlockJson(blockItem));
-                    if(block) blockTinyList = [block];
+                    if (block) blockTinyList = [block];
                     blobsTiny = blob;
                 }
                 break;
             case 'CARD':
-                ({block, blob} = await generateBlockJson(blockItem, {isLevelFocused:isLevelFocused}));
-                if(block) blockTinyList = [block];
+                ({block, blob} = await generateBlockJson(blockItem, {isLevelFocused: isLevelFocused}));
+                if (block) blockTinyList = [block];
                 blobsTiny = blob;
                 break;
             case 'UL':
-                if('DATA-LAKE-INDENT' in blockItem["$"]) currLevel = parseInt(blockItem["$"]["DATA-LAKE-INDENT"]);
+                if ('DATA-LAKE-INDENT' in blockItem["$"]) currLevel = parseInt(blockItem["$"]["DATA-LAKE-INDENT"]);
                 for (const liItem of blockItem["$$"]) {
                     if (liItem["#name"] !== 'LI') continue;
                     ({block, blob} = await generateBlockJson(liItem, {
                         blockstatus: Status.inUl
                     }));
-                    if(block) blockTinyList.push(block);
+                    if (block) blockTinyList.push(block);
                     blobsTiny = {...blobsTiny, ...blob};
                 }
                 break;
             case 'OL':
-                if('DATA-LAKE-INDENT' in blockItem["$"]) currLevel = parseInt(blockItem["$"]["DATA-LAKE-INDENT"]);
+                if ('DATA-LAKE-INDENT' in blockItem["$"]) currLevel = parseInt(blockItem["$"]["DATA-LAKE-INDENT"]);
                 let order = 1;
-                if("START" in blockItem['$']) {
+                if ("START" in blockItem['$']) {
                     order = parseInt(blockItem['$'].START);
                 }
                 for (const liItem of blockItem["$$"]) {
@@ -1225,30 +1229,30 @@ async function parseXML(docDict, isLevelFocused = true) {
                         blockstatus: Status.inOl,
                         order: order
                     }));
-                    if(block) blockTinyList.push(block);
+                    if (block) blockTinyList.push(block);
                     blobsTiny = {...blobsTiny, ...blob};
                     order++;
                 }
                 break;
             case 'TABLE':
                 ({block, blob} = await generateBlockJson(blockItem));
-                if(block) blockTinyList = [block];
+                if (block) blockTinyList = [block];
                 blobsTiny = blob;
                 break;
             case 'SPAN':
-                if ('CARD' in blockItem){
-                    for(const cardBlock of blockItem["$$"]){
-                        if(cardBlock['#name'] !== 'CARD') continue;
-                        ({block, blob} = await generateBlockJson(cardBlock, {isLevelFocused:isLevelFocused}));
-                        if(block) blockTinyList.push(block);
+                if ('CARD' in blockItem) {
+                    for (const cardBlock of blockItem["$$"]) {
+                        if (cardBlock['#name'] !== 'CARD') continue;
+                        ({block, blob} = await generateBlockJson(cardBlock, {isLevelFocused: isLevelFocused}));
+                        if (block) blockTinyList.push(block);
                         blobsTiny = {...blobsTiny, ...blob};
                     }
                 }
                 break;
             case 'ARTICLE':
                 // 分栏
-                for(const articleItem of blockItem["$$"]){
-                    if(articleItem["#name"] !== "ARTICLE") continue;
+                for (const articleItem of blockItem["$$"]) {
+                    if (articleItem["#name"] !== "ARTICLE") continue;
                     const articleResult = await parseXML(articleItem);
                     blockTinyList = [...blockTinyList, ...articleResult.content];
                     blobsTiny = {...blobsTiny, ...articleResult.blobs};
@@ -1258,7 +1262,7 @@ async function parseXML(docDict, isLevelFocused = true) {
                 // 折叠块
                 // 初六标题信息
                 ({block, blob} = await generateBlockJson(blockItem['$$'][0]));
-                if(block) blockTinyList.push(block);
+                if (block) blockTinyList.push(block);
                 blobsTiny = {...blobsTiny, ...blob};
                 // 处理内容信息
                 const detailsResult = await parseXML(blockItem);
@@ -1268,36 +1272,32 @@ async function parseXML(docDict, isLevelFocused = true) {
             default:
         }
 
-        if(!blockTinyList.length) continue;
+        if (!blockTinyList.length) continue;
 
-        if(isLevelFocused){
-            while (stack.length > 0 && currLevel <= stack[stack.length-1].level){
-                if(stack.length === 1){
+        if (isLevelFocused) {
+            while (stack.length > 0 && currLevel <= stack[stack.length - 1].level) {
+                if (stack.length === 1) {
                     blockList.push(stack.pop().block);
-                }
-                else stack.pop();
+                } else stack.pop();
             }
-            if(stack.length > 0){
-                stack[stack.length-1].block.children = [
-                    ...stack[stack.length-1].block.children,
+            if (stack.length > 0) {
+                stack[stack.length - 1].block.children = [
+                    ...stack[stack.length - 1].block.children,
                     ...blockTinyList
                 ]
-            }
-            else blockList = [...blockList, ...blockTinyList.slice(0, -1)];
-            stack.push({block:blockTinyList[blockTinyList.length-1], level:currLevel});
-        }
-        else {
+            } else blockList = [...blockList, ...blockTinyList.slice(0, -1)];
+            stack.push({block: blockTinyList[blockTinyList.length - 1], level: currLevel});
+        } else {
             blockList = [...blockList, ...blockTinyList];
         }
         blobs = {...blobs, ...blobsTiny};
     }
 
-    if(isLevelFocused){
-        while (stack.length > 0){
-            if(stack.length === 1){
+    if (isLevelFocused) {
+        while (stack.length > 0) {
+            if (stack.length === 1) {
                 blockList.push(stack.pop().block);
-            }
-            else stack.pop();
+            } else stack.pop();
         }
     }
 
@@ -1379,14 +1379,14 @@ function parseKnowledgeBase(rootDir) {
 
 // 示例运行
 // const rootDir = "C:/home/tonghao/笔记AI/笔记 AI/0a222e1d17339829838114264148";
-const rootDir = "D:/download"
+const rootDir = "C:/home/tonghao/backup/笔记AI/模板"
 
 // const {tocTree, docIdList} = parseKnowledgeBase(rootDir);
 // console.log("Document IDs:", docIdList);
 // console.log("Knowledge Base Tree:");
 // parseAllDocs(rootDir, docIdList)
 // displayTree(tocTree);
-parseDoc(rootDir, "需求文档").then(result => {
+parseDoc(rootDir, "产品文档 (1)").then(result => {
     // 输出这个字典的字符串表示形式
     const formattedData = JSON.stringify(result, null, 2);
     fs.writeFileSync("dictionary.txt", formattedData, "utf8");

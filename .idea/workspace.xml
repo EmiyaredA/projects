@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfecae99-e9f6-4978-afcc-0a9054fc6d9c" name="Changes" comment="">
+    <list default="true" id="bfecae99-e9f6-4978-afcc-0a9054fc6d9c" name="Changes" comment="Changes">
       <change afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/presentation_generate/Powerpointer/.idea/modules.xml" afterDir="false" />
@@ -13,6 +13,199 @@
       <change beforePath="$PROJECT_DIR$/.idea/projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projects.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataParse/yuqueParse.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataParse/yuqueParse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/.github/ISSUE_TEMPLATE/feature_request.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/.pre-commit-config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/DOC.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/docker/docker_launch.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/docker/pptagent.dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/.pnp.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/.pnp.loader.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/backend.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/android-icon-144x144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/android-icon-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/android-icon-36x36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/android-icon-48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/android-icon-72x72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/android-icon-96x96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-114x114.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-120x120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-144x144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-152x152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-180x180.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-57x57.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-72x72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-76x76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon-precomposed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/apple-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/browserconfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/favicon-16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/favicon-96x96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/ms-icon-144x144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/ms-icon-150x150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/ms-icon-310x310.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/public/ms-icon-70x70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/src/components/Generate.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/src/components/Upload.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/pptagent_ui/vue.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/ask_category.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/caption.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/category_split.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/content_induct.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/document_refine.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/ppteval_coherence.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/ppteval_content.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/ppteval_describe_content.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/ppteval_describe_style.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/ppteval_extract.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/prompts/ppteval_style.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/Building effective agents / Anthropic.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/Iphone16Pro.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0002.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0003.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0004.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0005.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0006.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0009.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/build_effective_agents/0010.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/casestudy.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/dataset.jsonl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/default_template.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/fig2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/fig3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/iPhone 16 Pro and iPhone 16 Pro Max - Apple.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/iphone16pro/0001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/iphone16pro/0002.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/iphone16pro/0003.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/iphone16pro/0004.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/iphone16pro/0005.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/iphone16pro/0006.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/iphone16pro/0007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/resource/pic_placeholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/roles/agent.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/roles/coder.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/roles/coder_wo_html.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/roles/editor.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/roles/editor_wo_schema.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/roles/planner.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/roles/planner_wo_structure.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/57b32a38d68d1e62908a3d4fe77441c2/_page_0_Figure_111.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/57b32a38d68d1e62908a3d4fe77441c2/_page_0_Figure_125.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/57b32a38d68d1e62908a3d4fe77441c2/_page_0_Figure_45.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/57b32a38d68d1e62908a3d4fe77441c2/_page_0_Figure_55.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/57b32a38d68d1e62908a3d4fe77441c2/caption.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/57b32a38d68d1e62908a3d4fe77441c2/meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/57b32a38d68d1e62908a3d4fe77441c2/refined_doc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/57b32a38d68d1e62908a3d4fe77441c2/source.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/57b32a38d68d1e62908a3d4fe77441c2/source.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_0_Picture_6.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_1_Picture_18.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_1_Picture_32.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_1_Picture_8.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_2_Picture_0.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_2_Picture_18.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_2_Picture_9.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_3_Picture_15.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_3_Picture_18.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_3_Picture_19.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_3_Picture_27.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_3_Picture_30.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_3_Picture_34.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_3_Picture_35.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/_page_3_Picture_37.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/image_caption.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/refined_doc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/source.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pdf/592890c9b99120aa62eb8811427d4fb9/source.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/image_stats.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/images/0237c4089461afe65b4e235bffbcab3ecdd574fb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/images/23f749d80eb9e545209eb3ffd4480e934ef23612.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/images/298534b1ee9d8070655f5330cf59401a64c1cd31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/images/51e66a0b42871c7b2f6863afc6ee46eb5203d47d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/images/591402633e3c1438b9001fcf068003392cadbb4f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/images/a3a829f8b4058da7719b8ff456543eb5f8fd1e2e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0002.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0003.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0004.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0005.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0006.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0009.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0010.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0012.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0013.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/slide_images/slide_0014.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/source.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0002.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0003.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0004.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0005.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0006.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0009.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0010.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0012.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0013.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_images/slide_0014.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/cluster_slides/Central Image with Explanatory Text:picture/slide_0008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/cluster_slides/Central Image with Explanatory Text:picture/slide_0009.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/cluster_slides/Image Illustrating Cultural Dance with Descriptive Text:picture/slide_0011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/cluster_slides/Image Illustrating Cultural Dance with Descriptive Text:picture/slide_0012.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/cluster_slides/Text-focused slide with key points and supporting statements:text/slide_0004.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/cluster_slides/Text-focused slide with key points and supporting statements:text/slide_0006.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/cluster_slides/ending:text/slide_0014.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/cluster_slides/opening:text/slide_0001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/cluster_slides/table of contents:text/slide_0002.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/induct_cache.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/runs/pptx/default_template/template_induct/backend/split_cache.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/apis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/ablation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/baseline_docpres.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/baseline_kctv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/crawler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/download_dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/evals.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/experiments.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/preprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/rebuild.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/experiment/statistic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/induct.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/llms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/model_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/multimodal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/pptgen.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/presentation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation_generate/PPTAgent/src/utils.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/flaskapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/flaskapp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/utils/gpt_generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation_generate/PowerPoint-Generator-Python-Project/myapp/utils/gpt_generate.py" afterDir="false" />
@@ -36,6 +229,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -44,7 +242,10 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/presentation_generate/ppt_th" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../senseProjects/DocsSenseNote" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -59,22 +260,26 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/home/tonghao/projects/presentation_generate/ppt_th",
+    "git-widget-placeholder": "sensenote",
+    "last_opened_file_path": "C:/home/tonghao/senseProjects/DocsSenseNote/docs/SenseNote产品介绍",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "vcs.Git",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\home\tonghao\senseProjects\DocsSenseNote\docs\SenseNote产品介绍" />
       <recent name="C:\home\tonghao\projects\presentation_generate\PowerPoint-Generator-Python-Project" />
       <recent name="C:\home\tonghao\projects\presentation_generate\ai-presentation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\home\tonghao\senseProjects\DocsSenseNote\docs\产品文档" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -102,7 +307,34 @@
       <workItem from="1736331286123" duration="1396000" />
       <workItem from="1736942310203" duration="961000" />
       <workItem from="1736943291562" duration="1860000" />
+      <workItem from="1739351448911" duration="1541000" />
+      <workItem from="1739353225714" duration="2457000" />
     </task>
+    <task id="LOCAL-00001" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1739353806168</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739353806169</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1739355497086</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1739355497086</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1739355660804</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1739355660804</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,5 +348,9 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
   </component>
 </project>
